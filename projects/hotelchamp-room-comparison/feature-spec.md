@@ -14,7 +14,8 @@ Let a guest compare rooms on the main attributes that actually drive a decision 
 
 ## Why this shape (sticky tray → modal, not a new page)
 
-- **Doesn't compete with the primary action.** The primary action on this step is picking a room and moving to Rates. A prominent "Compare" button next to every room would visually compete with that. A small checkbox under the price is present but quiet — it's opt-in, not a second call to action.
+- **The existing room card is untouched.** Photo, name, description, guest count, price — same layout, same order as today. The only new thing on the card is a "Compare" pill sitting on the photo itself, in the same visual family as the "Only one room left" badge. It doesn't add a row, a divider, or any element below the price, which is what made the first pass confusing: a checkbox living under a dashed line, at the bottom of a card of variable height, read as belonging to whichever room happened to start next in the grid. Anchoring it to the photo removes that ambiguity — it's unmistakably that room's control because it's drawn on that room's image.
+- **Doesn't compete with the primary action.** The primary action on this step is picking a room and moving to Rates. A prominent "Compare" button next to every room would visually compete with that. The pill is quiet — it's opt-in, not a second call to action.
 - **No navigation, no lost place.** Comparison opens as a panel over the current screen. Closing it (✕, Esc, or clicking outside) returns the guest to exactly where they were — same scroll position, same step. Nothing about picking a room to compare should feel like leaving Rooms.
 - **The tray confirms the choice before committing to a panel.** As soon as one room is tagged, a sticky bar docks to the bottom with a thumbnail and price. It's a lightweight receipt ("you've tagged this"), not the comparison itself — that only opens once the guest deliberately asks for it, which keeps the noise low while browsing.
 - **A cap of three.** Comparing is meant to resolve a decision between a short list, not become a spreadsheet. Three columns is the most a guest can meaningfully scan side by side on one screen without scrolling per-room; a fourth checkbox disables with a one-line reason instead of failing silently.
@@ -22,12 +23,13 @@ Let a guest compare rooms on the main attributes that actually drive a decision 
 
 ## Interaction flow
 
-1. Guest browses the Rooms grid as today.
-2. Guest checks "Compare this room" under one room's price. The tray appears at the bottom of the screen.
-3. Guest repeats for a second (and optionally third) room. The tray updates with each addition; a "Clear" link resets it.
-4. At two or more selected, the tray's primary button reads "Compare rooms (N)" and becomes active.
-5. Guest taps it → a comparison panel opens: one column per selected room, one row per attribute (photo, price, guests, size, bed, view, cancellation, facilities), each column ending in "View rates for this room."
-6. Guest either closes the panel (back to browsing, selections preserved) or picks a room's CTA (proceeds into Rates for that room).
+1. Guest browses the Rooms grid as today — nothing about the cards has changed.
+2. Guest taps the "Compare" pill on a room's photo (top-right corner, next to the scarcity badge). It fills solid and reads "Comparing"; a tray docks to the bottom of the screen showing that room as a chip (thumbnail, name, price, a small ✕ to remove it).
+3. Guest repeats for a second (and optionally third) room; each adds a chip to the tray. A "Clear all" link resets the whole selection; the ✕ on any chip removes just that one — the guest never has to scroll back up to undo a pick.
+4. With exactly one room tagged, the tray shows a plain-language hint ("Select 1 more room to compare") next to a disabled "Compare rooms" button — the button's label never changes to an instruction, only its enabled state does.
+5. At two or more, the button reads "Compare rooms (N)", carries a small icon, and is active.
+6. Guest taps it → a comparison panel opens: one column per selected room, one row per attribute (photo, price, guests, size, bed, view, cancellation, facilities), each column ending in "View rates for this room."
+7. Guest either closes the panel (back to browsing, selections preserved) or picks a room's CTA (proceeds into Rates for that room).
 
 ## Attributes compared
 

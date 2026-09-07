@@ -182,23 +182,24 @@
   .price{font-size:1.15rem; font-weight:600; font-variant-numeric:tabular-nums;}
   .price span{font-size:.78rem; font-weight:400; color:var(--ink-muted);}
 
-  .compare-row{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-top:.7rem; padding-top:.7rem; border-top:1px dashed var(--line);
+  /* compare toggle lives on the photo itself, like the scarcity badge —
+     never below the card, so it can't read as belonging to the next room */
+  .compare-pill{
+    position:absolute; top:.7rem; right:.7rem; z-index:2;
+    display:flex; align-items:center; gap:.4rem;
+    background:rgba(255,255,255,.94); color:#1c1815;
+    border:none; border-radius:20px; padding:.34rem .7rem .34rem .5rem;
+    font-family:inherit; font-size:.76rem; font-weight:600; letter-spacing:.01em;
+    cursor:pointer; transition:background .15s ease, color .15s ease;
   }
-  .compare-check{
-    display:flex; align-items:center; gap:.5rem; cursor:pointer; font-size:.83rem; color:var(--ink-muted);
-    user-select:none;
+  .compare-pill .box{
+    width:.8rem; height:.8rem; border:1.5px solid #8a8378; border-radius:3px; flex:none;
+    display:flex; align-items:center; justify-content:center; font-size:.6rem; color:#fff;
   }
-  .compare-check input{
-    appearance:none; width:1rem; height:1rem; border:1.5px solid var(--line); border-radius:3px;
-    display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:none;
-  }
-  .compare-check input:checked{ background:var(--accent); border-color:var(--accent); }
-  .compare-check input:checked::after{ content:"✓"; color:var(--accent-contrast); font-size:.68rem; }
-  .compare-check input:disabled{ opacity:.4; cursor:not-allowed; }
-  .compare-check.is-on{ color:var(--ink); font-weight:600; }
-  .limit-note{font-size:.76rem; color:var(--ink-muted); font-style:italic;}
+  .compare-pill[aria-pressed="true"]{ background:var(--accent); color:var(--accent-contrast); }
+  .compare-pill[aria-pressed="true"] .box{ background:var(--accent-contrast); border-color:var(--accent-contrast); color:var(--accent); }
+  .compare-pill[aria-pressed="true"] .box::after{ content:"✓"; }
+  .compare-pill:disabled{ opacity:.5; cursor:not-allowed; }
 
   /* --- comparison tray --- */
   .tray{
@@ -209,25 +210,38 @@
     transition:transform .25s ease, opacity .25s ease;
   }
   .tray.visible{ transform:translateY(0); opacity:1; pointer-events:auto; }
-  .tray-left{display:flex; align-items:center; gap:.7rem; flex-wrap:wrap;}
-  .tray-thumb{
-    width:2.4rem;height:2.4rem;border-radius:4px; background:linear-gradient(135deg,var(--g1),var(--g2));
-    border:1px solid var(--line);
+  .tray-left{display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;}
+  .tray-chip{
+    display:flex; align-items:center; gap:.5rem; background:var(--surface-2);
+    border-radius:20px; padding:.3rem .5rem .3rem .3rem;
   }
-  .tray-copy{font-size:.85rem;}
-  .tray-copy b{display:block;}
-  .tray-copy span{color:var(--ink-muted); font-size:.78rem;}
-  .tray-actions{display:flex; align-items:center; gap:.9rem;}
+  .tray-thumb{
+    width:2.1rem;height:2.1rem;border-radius:50%; background:linear-gradient(135deg,var(--g1),var(--g2));
+    flex:none;
+  }
+  .tray-copy{font-size:.82rem; line-height:1.25;}
+  .tray-copy b{display:block; font-weight:600;}
+  .tray-copy span{color:var(--ink-muted); font-size:.74rem;}
+  .tray-remove{
+    background:none; border:none; color:var(--ink-muted); cursor:pointer; font-size:.9rem;
+    line-height:1; padding:.1rem .2rem; flex:none;
+  }
+  .tray-remove:hover{color:var(--ink);}
+  .tray-hint{font-size:.83rem; color:var(--ink-muted);}
+  .tray-actions{display:flex; align-items:center; gap:1rem;}
   .link-btn{
     background:none;border:none;font-family:inherit;font-size:.83rem;color:var(--ink-muted);
     cursor:pointer; text-decoration:underline; padding:0;
   }
   .btn-primary{
+    display:flex; align-items:center; gap:.5rem;
     background:var(--accent); color:var(--accent-contrast); border:none; border-radius:6px;
     padding:.65rem 1.2rem; font-family:inherit; font-weight:600; font-size:.88rem; cursor:pointer;
+    white-space:nowrap;
   }
-  .btn-primary:hover{background:var(--accent-strong);}
-  .btn-primary:disabled{opacity:.5; cursor:not-allowed;}
+  .btn-primary svg{flex:none;}
+  .btn-primary:hover:not(:disabled){background:var(--accent-strong);}
+  .btn-primary:disabled{background:var(--surface-2); color:var(--ink-muted); cursor:not-allowed;}
 
   /* --- modal --- */
   .overlay{
@@ -317,7 +331,7 @@
   </div>
 
   <div class="steps">
-    <div class="step"><span class="step-n">1</span><p class="step-t"><b>Tag rooms</b> with the quiet checkbox under each price — up to three.</p></div>
+    <div class="step"><span class="step-n">1</span><p class="step-t"><b>Tag rooms</b> with the "Compare" pill on each photo — up to three.</p></div>
     <div class="step"><span class="step-n">2</span><p class="step-t"><b>Review side by side</b> in a tray-triggered panel: price, guests, size, view, cancellation, facilities.</p></div>
     <div class="step"><span class="step-n">3</span><p class="step-t"><b>Jump to rates</b> for the winner directly from the comparison — the panel closes, the flow continues.</p></div>
   </div>
@@ -344,8 +358,11 @@
     <div class="tray" id="tray">
       <div class="tray-left" id="trayThumbs"></div>
       <div class="tray-actions">
-        <button class="link-btn" id="clearBtn">Clear</button>
-        <button class="btn-primary" id="compareBtn" disabled>Compare rooms</button>
+        <button class="link-btn" id="clearBtn">Clear all</button>
+        <button class="btn-primary" id="compareBtn" disabled>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="1" y="2" width="6" height="12" rx="1.2" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="2" width="6" height="12" rx="1.2" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span id="compareBtnLabel">Compare rooms</span>
+        </button>
       </div>
     </div>
   </div>
@@ -412,6 +429,7 @@ ROOMS.forEach(r => photoIndex[r.id] = 0);
 const roomsEl = document.getElementById('rooms');
 const trayEl = document.getElementById('tray');
 const trayThumbs = document.getElementById('trayThumbs');
+const trayActionsEl = document.querySelector('.tray-actions');
 const compareBtn = document.getElementById('compareBtn');
 const clearBtn = document.getElementById('clearBtn');
 const overlay = document.getElementById('overlay');
@@ -427,6 +445,9 @@ function renderRooms(){
   roomsEl.innerHTML = ROOMS.map(r => `
     <div class="room-card" style="--g1:${r.g1};--g2:${r.g2}" data-id="${r.id}">
       <div class="photo">
+        <button class="compare-pill" data-toggle="${r.id}" aria-pressed="false">
+          <span class="box"></span><span class="pill-label">Compare</span>
+        </button>
         ${r.scarce ? '<div class="scarce">Only one room left</div>' : ''}
         <button class="nav-arrow prev" data-nav="-1" data-room="${r.id}" aria-label="Previous photo">‹</button>
         <button class="nav-arrow next" data-nav="1" data-room="${r.id}" aria-label="Next photo">›</button>
@@ -440,13 +461,6 @@ function renderRooms(){
           <span class="price-note">Incl. VAT, Excl. €24.00/night taxes &amp; fees</span>
           <div class="price">${money(r.price)} <span>/ night</span></div>
         </div>
-      </div>
-      <div class="compare-row">
-        <label class="compare-check" data-check="${r.id}">
-          <input type="checkbox" data-toggle="${r.id}">
-          <span class="label-text">Compare this room</span>
-        </label>
-        <span class="limit-note" data-limit="${r.id}" hidden>Compare up to ${MAX_COMPARE} rooms</span>
       </div>
     </div>
   `).join('');
@@ -463,17 +477,23 @@ function updatePhotos(){
   });
 }
 
-function updateChecks(){
+function toggleRoom(id){
+  const atLimit = selected.size >= MAX_COMPARE && !selected.has(id);
+  if(atLimit) return;
+  if(selected.has(id)) selected.delete(id); else selected.add(id);
+  updatePillStates();
+  updateTray();
+}
+
+function updatePillStates(){
   ROOMS.forEach(r=>{
-    const input = document.querySelector(`input[data-toggle="${r.id}"]`);
-    const label = document.querySelector(`label[data-check="${r.id}"]`);
-    const limitNote = document.querySelector(`span[data-limit="${r.id}"]`);
+    const pill = document.querySelector(`.compare-pill[data-toggle="${r.id}"]`);
     const isOn = selected.has(r.id);
-    input.checked = isOn;
-    label.classList.toggle('is-on', isOn);
     const atLimit = selected.size >= MAX_COMPARE && !isOn;
-    input.disabled = atLimit;
-    limitNote.hidden = !atLimit;
+    pill.setAttribute('aria-pressed', String(isOn));
+    pill.disabled = atLimit;
+    pill.title = atLimit ? `You can compare up to ${MAX_COMPARE} rooms — remove one to add this` : '';
+    pill.querySelector('.pill-label').textContent = isOn ? 'Comparing' : 'Compare';
   });
 }
 
@@ -482,13 +502,30 @@ function updateTray(){
   trayEl.classList.toggle('visible', ids.length > 0);
   trayThumbs.innerHTML = ids.map(id => {
     const r = ROOMS.find(x=>x.id===id);
-    return `<div style="display:flex;align-items:center;gap:.5rem;">
+    return `<div class="tray-chip">
       <div class="tray-thumb" style="--g1:${r.g1};--g2:${r.g2}"></div>
       <div class="tray-copy"><b>${r.name}</b><span>${money(r.price)}/night</span></div>
+      <button class="tray-remove" data-remove="${id}" aria-label="Remove ${r.name} from comparison">✕</button>
     </div>`;
   }).join('');
-  compareBtn.disabled = ids.length < 2;
-  compareBtn.textContent = ids.length >= 2 ? `Compare rooms (${ids.length})` : 'Select 2 rooms to compare';
+
+  const canCompare = ids.length >= 2;
+  compareBtn.disabled = !canCompare;
+  document.getElementById('compareBtnLabel').textContent = canCompare
+    ? `Compare rooms (${ids.length})`
+    : 'Compare rooms';
+
+  let hint = trayEl.querySelector('.tray-hint');
+  if(ids.length === 1){
+    if(!hint){
+      hint = document.createElement('span');
+      hint.className = 'tray-hint';
+      trayActionsEl.insertBefore(hint, trayActionsEl.firstChild);
+    }
+    hint.textContent = 'Select 1 more room to compare';
+  } else if(hint){
+    hint.remove();
+  }
 }
 
 function showToast(msg){
@@ -532,20 +569,19 @@ roomsEl.addEventListener('click', (e)=>{
     updatePhotos();
     return;
   }
+  const toggle = e.target.closest('.compare-pill');
+  if(toggle) toggleRoom(toggle.dataset.toggle);
 });
 
-roomsEl.addEventListener('change', (e)=>{
-  const toggle = e.target.closest('[data-toggle]');
-  if(!toggle) return;
-  const id = toggle.dataset.toggle;
-  if(toggle.checked) selected.add(id); else selected.delete(id);
-  updateChecks();
-  updateTray();
+trayThumbs.addEventListener('click', (e)=>{
+  const remove = e.target.closest('[data-remove]');
+  if(!remove) return;
+  toggleRoom(remove.dataset.remove);
 });
 
 clearBtn.addEventListener('click', ()=>{
   selected.clear();
-  updateChecks();
+  updatePillStates();
   updateTray();
 });
 
@@ -569,6 +605,6 @@ cmpTable.addEventListener('click', (e)=>{
 });
 
 renderRooms();
-updateChecks();
+updatePillStates();
 updateTray();
 </script>
