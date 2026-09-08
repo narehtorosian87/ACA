@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand-100 text-sand-900 font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-semibold text-sand-900;
+  }
+}
+
+/* Sun salutation flow animation: a pure CSS crossfade loop through eight
+   poses. Kept as plain CSS because the timing math (8 poses over a 16s
+   loop) reads far more clearly as keyframes than as utility classes. */
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.86);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes pose-fade {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  14% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.breath-ring {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.pose-layer,
+.pose-name {
+  /* Base state before each layer's staggered animation-delay elapses.
+     Without this, animation-fill-mode defaults to "none", so a layer
+     sits at full opacity (invisible-but-undeclared = 1) until its own
+     delay kicks in, and every pose overlaps for the first ~14s of
+     every page load. */
+  opacity: 0;
+  animation: pose-fade 16s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breath-ring,
+  .pose-layer,
+  .pose-name {
+    animation: none;
+  }
+  .pose-layer:first-of-type,
+  .pose-name:first-of-type {
+    opacity: 1;
+  }
+}
