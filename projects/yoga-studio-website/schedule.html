@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Schedule | Ekam Yoga Studio</title>
+<meta name="description" content="Weekly group class schedule at Ekam Yoga Studio, with class style, time, and instructor. Reserve your spot online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">Ekam <span>Yoga Studio</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="styles-of-yoga.html">Styles of Yoga</a></li>
+      <li><a href="private-classes.html">Private Sessions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Class Schedule</span>
+      <h1>This week at the studio</h1>
+      <p>Same instructors, same times, week after week, so the practice can become a habit rather than an errand.</p>
+    </div>
+  </section>
+
+  <section style="padding-top: 20px;">
+    <div class="container">
+      <div class="schedule-table-wrap">
+        <table class="schedule">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Time</th>
+              <th>Class</th>
+              <th>Instructor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day">Monday</td>
+              <td>7:00 – 8:00 AM</td>
+              <td>Vinyasa Flow</td>
+              <td>Maya Torres</td>
+            </tr>
+            <tr>
+              <td class="day">Monday</td>
+              <td>6:00 – 7:15 PM</td>
+              <td>Yin Yoga</td>
+              <td>Daniel Osei</td>
+            </tr>
+            <tr>
+              <td class="day">Tuesday</td>
+              <td>9:30 – 10:30 AM</td>
+              <td>Hatha Yoga</td>
+              <td>Priya Nandakumar</td>
+            </tr>
+            <tr>
+              <td class="day">Tuesday</td>
+              <td>6:00 – 7:00 PM</td>
+              <td>Restorative Yoga</td>
+              <td>Maya Torres</td>
+            </tr>
+            <tr>
+              <td class="day">Wednesday</td>
+              <td>7:00 – 8:00 AM</td>
+              <td>Vinyasa Flow</td>
+              <td>Daniel Osei</td>
+            </tr>
+            <tr>
+              <td class="day">Wednesday</td>
+              <td>12:15 – 1:00 PM</td>
+              <td>Lunchtime Flow (Express)</td>
+              <td>Priya Nandakumar</td>
+            </tr>
+            <tr>
+              <td class="day">Wednesday</td>
+              <td>6:00 – 7:15 PM</td>
+              <td>Ashtanga-Inspired Flow</td>
+              <td>Maya Torres</td>
+            </tr>
+            <tr>
+              <td class="day">Thursday</td>
+              <td>9:30 – 10:30 AM</td>
+              <td>Gentle Hatha</td>
+              <td>Priya Nandakumar</td>
+            </tr>
+            <tr>
+              <td class="day">Thursday</td>
+              <td>6:00 – 7:00 PM</td>
+              <td>Yin Yoga</td>
+              <td>Daniel Osei</td>
+            </tr>
+            <tr>
+              <td class="day">Friday</td>
+              <td>7:00 – 8:00 AM</td>
+              <td>Vinyasa Flow</td>
+              <td>Maya Torres</td>
+            </tr>
+            <tr>
+              <td class="day">Friday</td>
+              <td>5:30 – 6:30 PM</td>
+              <td>Restorative Yoga</td>
+              <td>Priya Nandakumar</td>
+            </tr>
+            <tr>
+              <td class="day">Saturday</td>
+              <td>9:00 – 10:15 AM</td>
+              <td>Community Vinyasa Flow</td>
+              <td>Maya Torres</td>
+            </tr>
+            <tr>
+              <td class="day">Saturday</td>
+              <td>10:30 – 11:30 AM</td>
+              <td>Yin &amp; Sound</td>
+              <td>Daniel Osei</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rest-note">The studio is closed on Sundays. Even a small room needs a day of stillness.</p>
+    </div>
+  </section>
+
+  <section class="section-alt" id="reserve">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Reserve your spot</span>
+        <h2>Sign up for a group class</h2>
+        <p>Pick a class from the schedule above and let us know you're coming. We'll hold your spot at the front desk.</p>
+      </div>
+
+      <div class="form-card">
+        <form data-demo-form novalidate>
+          <div class="form-row">
+            <div class="field">
+              <label for="rsvp-name">Full name</label>
+              <input type="text" id="rsvp-name" name="name" required>
+            </div>
+            <div class="field">
+              <label for="rsvp-email">Email</label>
+              <input type="email" id="rsvp-email" name="email" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="rsvp-class">Choose a class</label>
+            <select id="rsvp-class" name="class" required>
+              <option value="" disabled selected>Select a day and time</option>
+              <option>Monday 7:00 AM, Vinyasa Flow (Maya Torres)</option>
+              <option>Monday 6:00 PM, Yin Yoga (Daniel Osei)</option>
+              <option>Tuesday 9:30 AM, Hatha Yoga (Priya Nandakumar)</option>
+              <option>Tuesday 6:00 PM, Restorative Yoga (Maya Torres)</option>
+              <option>Wednesday 7:00 AM, Vinyasa Flow (Daniel Osei)</option>
+              <option>Wednesday 12:15 PM, Lunchtime Flow Express (Priya Nandakumar)</option>
+              <option>Wednesday 6:00 PM, Ashtanga-Inspired Flow (Maya Torres)</option>
+              <option>Thursday 9:30 AM, Gentle Hatha (Priya Nandakumar)</option>
+              <option>Thursday 6:00 PM, Yin Yoga (Daniel Osei)</option>
+              <option>Friday 7:00 AM, Vinyasa Flow (Maya Torres)</option>
+              <option>Friday 5:30 PM, Restorative Yoga (Priya Nandakumar)</option>
+              <option>Saturday 9:00 AM, Community Vinyasa Flow (Maya Torres)</option>
+              <option>Saturday 10:30 AM, Yin &amp; Sound (Daniel Osei)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rsvp-notes">Anything we should know (optional)</label>
+            <textarea id="rsvp-notes" name="notes" placeholder="First time practicing, an injury, a preference for the back of the room, anything at all."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Reserve my spot</button>
+        </form>
+        <div class="form-success">Thanks. Your spot is reserved. We look forward to practicing with you. (This is a first-version demo form; nothing is sent yet.)</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Ekam Yoga Studio</div>
+        <p>A small studio built around breath, patience, and steady practice.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="schedule.html">Class Schedule</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="styles-of-yoga.html">Styles of Yoga</a></li>
+          <li><a href="private-classes.html">Private Sessions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>Open Monday to Saturday</li>
+          <li>Sunday is a rest day, even for us</li>
+          <li>hello@ekamyoga.studio</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ekam Yoga Studio</span>
+      <span>Om Shanti, Shanti, Shanti</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
