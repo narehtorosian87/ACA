@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hospitality Weekly Market Analysis — Claude Code Skill</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --surface: #ffffff;
+    --ink: #201a14;
+    --ink-dim: #5c5248;
+    --accent: #8a4b2e;
+    --accent-soft: #f1e3d8;
+    --border: #e7ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 0 20px 80px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  header { padding: 56px 0 24px; }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 34px; line-height: 1.15; margin: 0 0 14px; letter-spacing: -0.01em; }
+  .lede { font-size: 18px; color: var(--ink-dim); max-width: 62ch; }
+  section { margin-top: 40px; }
+  h2 { font-size: 20px; margin: 0 0 14px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .card + .card { margin-top: 12px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  .tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin: 0 6px 6px 0;
+  }
+  ul { margin: 8px 0 0; padding-left: 20px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--accent-soft);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 13px;
+  }
+  pre {
+    background: #241d16;
+    color: #f3ece2;
+    padding: 16px 18px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  a { color: var(--accent); }
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--ink-dim);
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Claude Code Skill</div>
+    <h1>Hospitality Weekly Market Analysis</h1>
+    <p class="lede">A weekly research briefing for a Hotelchamp Product Manager — the top hospitality &amp; travel-tech updates from the last 7 days, translated into what they could mean for the booking engine roadmap.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <div class="card">
+      <p>Every run, the skill searches a fixed list of credible trade outlets and official brand/OTA newsrooms, filters to the last 7 days, and drops opinion pieces in favor of reported news. It picks up to 10 of the most significant updates, split across two focus areas:</p>
+      <span class="tag">General hospitality industry</span>
+      <span class="tag">Hospitality tech &amp; AI</span>
+      <p>For each item it writes a short factual summary, a specific "what this could mean for Hotelchamp / the booking engine" analysis, and a cited source link — then appends the week as a new dated section to the running log, newest first, skipping anything already covered in a prior week.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Approved sources</h2>
+    <div class="grid">
+      <div class="card">
+        <strong>Trade press</strong>
+        <ul>
+          <li>Skift</li>
+          <li>Hotel Tech Report</li>
+          <li>PhocusWire</li>
+          <li>Hospitality Net</li>
+          <li>Travel Weekly</li>
+          <li>Hotel News Now</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong>Official newsrooms</strong>
+        <ul>
+          <li>Booking.com / Booking Holdings</li>
+          <li>Expedia Group</li>
+          <li>Airbnb</li>
+          <li>Marriott, Hilton, Accor, IHG, Hyatt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Where the output lives</h2>
+    <div class="card">
+      <p>Each week's report is appended to <code>products/hospitality-weekly-market-analysis/weekly-log.md</code> in this repo — one running file, most recent week at the top, used at each quarter's planning cycle to spot recurring themes and roadmap signals.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Running it</h2>
+    <div class="card">
+      <p>Installed as a global Claude Code skill at <code>~/.claude/skills/hospitality-weekly-market-analysis/</code>, and mirrored in this repo at <code>.claude/skills/hospitality-weekly-market-analysis/</code>. It's scheduled to run automatically every Monday morning (8am Yerevan time), and can also be triggered manually:</p>
+      <pre>Ask Claude Code: "run the hospitality weekly market analysis"</pre>
+    </div>
+  </section>
+
+  <footer>
+    Part of Nareh's ACA course workspace. See <code>SKILL.md</code> in this folder's source for the full instructions.
+  </footer>
+
+</div>
+</body>
+</html>
