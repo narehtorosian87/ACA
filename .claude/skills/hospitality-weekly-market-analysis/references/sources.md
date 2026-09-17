@@ -28,3 +28,4 @@ Use only these. If a story only shows up on a source not listed here, skip it ra
 ## Search tips
 - Search each outlet's site directly when possible (e.g. `site:skift.com AI booking` or `site:hoteltechreport.com`) rather than relying on generic queries, to stay inside the approved list.
 - For brand/OTA newsroom items, go straight to the press/investor relations page — general news search often misses these.
+- Airbnb in particular: check news.airbnb.com directly every run. A generic "Airbnb news" search tends to surface stock-price and earnings-conference chatter instead of actual product/strategy news, which makes it easy to wrongly conclude there's nothing to cover from them.

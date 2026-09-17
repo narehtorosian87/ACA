@@ -27,7 +27,7 @@ Search the sources in `references/sources.md`, and fetch full articles when you 
 1. **General hospitality industry** — market performance, demand/rate trends, brand M&A or strategy moves, regulatory shifts, major brand news (Marriott, Hilton, Accor, IHG, Hyatt, etc.), OTA news (Booking.com, Expedia, Airbnb, Trip.com).
 2. **Hospitality technology, with emphasis on AI** — new product launches, AI features/agents in booking or guest journeys, distribution/tech vendor moves, PMS/CRS/booking-tech news, OTA or brand tech announcements.
 
-Give real weight to news specifically from market leaders (major brands) and big OTAs even if the story is thin elsewhere — the PM cares disproportionately about what Booking.com, Expedia, and the major chains are doing, since that's Hotelchamp's competitive and partner landscape.
+Give real weight to news specifically from market leaders (major brands) and big OTAs even if the story is thin elsewhere — the PM cares disproportionately about what Booking.com, Expedia, Airbnb, and the major chains are doing, since that's Hotelchamp's competitive and partner landscape. Airbnb specifically is easy to under-cover because generic searches tend to surface stock/earnings chatter over actual product or strategy news — always check Airbnb's own newsroom directly (news.airbnb.com) each run, not just a generic "Airbnb news" search, before concluding there's nothing from them this week.
 
 **Source discipline (non-negotiable):**
 - Only use the credible outlets and official brand/OTA newsrooms listed in `references/sources.md`. If you can't find enough this week from that list, report fewer than 10 items rather than reaching for a blog, forum, or opinion column.
