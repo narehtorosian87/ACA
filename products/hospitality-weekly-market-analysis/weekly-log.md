@@ -2,6 +2,26 @@
 
 Running weekly log for Hotelchamp product/roadmap planning. Newest entries first. Produced by the `hospitality-weekly-market-analysis` Claude Code skill.
 
+## Week of 2026-09-14 (covering 2026-09-06 – 2026-09-14)
+
+*Manual backfill: the automated Monday run for this week did not complete (the scheduled session stalled without pushing a result), so this entry was produced manually to close the gap before the next automated run.*
+
+### General hospitality industry
+
+1. **Hyatt and Delta Air Lines launch a long-term loyalty partnership, replacing Hyatt's prior American Airlines tie-up** — Hyatt Newsroom, Sep 9, 2026
+   - Summary: Hyatt and Delta announced a strategic collaboration linking World of Hyatt and Delta SkyMiles, centered on a "dual-earn" feature — eligible Hyatt elites earn Hyatt points on Delta fares, and Delta Medallion members earn SkyMiles on qualifying Hyatt stays. Specifics (earning rates, elite reciprocity, launch date) are still to come "in the coming months"; this replaces Hyatt's outgoing partnership with American Airlines.
+   - Why it matters for Hotelchamp: Airline-hotel loyalty tie-ups are a direct-channel retention play — they give major chains another reason for loyalty members to book direct rather than through an OTA. Worth watching whether hotel partners start asking for booking-engine support around loyalty-linked perks/messaging (e.g., surfacing "earn Delta miles" at the point of direct booking) as these airline-hotel bundles become more common industry-wide.
+   - Source: [Hyatt Announces Long-Term Strategic Collaboration with Delta Air Lines](https://newsroom.hyatt.com/DeltaAirLines)
+
+### Hospitality technology & AI
+
+No qualifying new tech/AI item this week from approved sources. The credible, dated items found this cycle (SiteMinder/MCP coverage, Google AI Mode hotel booking, Hilton's multi-LLM integration push, Booking Holdings' AI trip-planning remarks) were all published before the 2026-09-06 window start, and everything else in-window duplicated the prior week's already-logged coverage (GDS/agent-to-agent AI, Fogel's "scale still wins" remarks).
+
+### So what this week
+A short week by necessity (backfilling a 2-day-wide research gap plus catching up on what the failed automated run would have covered), and thin on genuinely new tech/AI news specifically — most of what surfaced traced back to stories already logged the prior week. The one clear signal: airline-hotel loyalty bundling keeps advancing (Hyatt-Delta following Google/OTA loyalty integrations), reinforcing that loyalty-linked messaging at the point of direct booking is a recurring theme worth keeping on Hotelchamp's radar for the booking engine.
+
+---
+
 ## Week of 2026-09-12 (covering 2026-09-05 – 2026-09-12)
 
 ### General hospitality industry
