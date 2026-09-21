@@ -101,7 +101,7 @@
     padding: 14px 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: 10px; margin-right: auto; }
@@ -128,7 +128,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23898781' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 12px center;
-    max-width: 230px;
+    max-width: 220px;
     cursor: pointer;
   }
   select#hotelSelect:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -166,7 +166,6 @@
   }
   .dp-btn:hover { background: var(--surface-3); }
   .dp-btn svg { width: 14px; height: 14px; color: var(--muted); flex-shrink: 0; }
-  .dp-btn .dp-sub { color: var(--muted); font-size: 11px; }
 
   .dp-pop {
     position: absolute;
@@ -190,23 +189,22 @@
   .dp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
   .dp-dow { font-size: 10px; color: var(--muted); text-align: center; padding: 4px 0 6px; text-transform: uppercase; letter-spacing: .03em; }
   .dp-day {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
     font-size: 12px;
-    text-align: center;
-    padding: 7px 0;
+    padding: 6px 0;
     border-radius: 7px;
     color: var(--muted);
+    min-height: 30px;
   }
   .dp-day.pad { visibility: hidden; }
-  .dp-day.enabled {
-    cursor: pointer;
-    font-weight: 700;
-    color: var(--text-primary);
-    background: var(--surface-2);
-    border: 1px solid var(--border-strong);
-  }
-  .dp-day.enabled:hover { background: var(--accent-soft); }
-  .dp-day.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .dp-day.selectable { cursor: pointer; color: var(--text-primary); }
+  .dp-day.selectable:hover { background: var(--surface-2); }
+  .dp-day.has-data { font-weight: 700; }
+  .dp-day .ddot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .dp-day.selected { background: var(--accent); color: #fff; }
+  .dp-day.selected .ddot { background: #fff; }
   .dp-footer { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .dp-footer .ddot-inline { display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); margin: 0 3px; }
 
   /* ---------- Sections ---------- */
   main { padding-block: 24px 64px; }
@@ -215,27 +213,11 @@
   .section-head h2 { font-size: 17px; font-weight: 700; }
   .section-head .hint { font-size: 12.5px; color: var(--muted); }
 
-  .lede {
-    font-size: 13.5px;
-    color: var(--text-secondary);
-    max-width: 62ch;
-    line-height: 1.55;
-  }
+  .lede { font-size: 13.5px; color: var(--text-secondary); max-width: 62ch; line-height: 1.55; }
 
   /* ---------- Stat tiles ---------- */
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-    margin-top: 16px;
-  }
-  .stat-tile {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    box-shadow: var(--shadow);
-  }
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 16px; }
+  .stat-tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); }
   .stat-tile .label { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
   .stat-tile .value { font-size: 24px; font-weight: 700; margin-top: 4px; letter-spacing: -0.01em; }
   .stat-tile .value.small { font-size: 18px; }
@@ -243,17 +225,7 @@
   /* ---------- Portfolio table ---------- */
   .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); box-shadow: var(--shadow); }
   table { width: 100%; border-collapse: collapse; min-width: 640px; }
-  thead th {
-    text-align: left;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    font-weight: 600;
-    padding: 11px 14px;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
+  thead th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; padding: 11px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; }
   thead th.num, td.num { text-align: right; }
   tbody td { padding: 12px 14px; font-size: 13.5px; border-bottom: 1px solid var(--border); vertical-align: middle; }
   tbody tr:last-child td { border-bottom: none; }
@@ -264,16 +236,7 @@
   .hcity { color: var(--muted); font-size: 12px; margin-top: 1px; }
   .stars { color: var(--muted); font-size: 12px; white-space: nowrap; }
 
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 9px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
+  .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 4px 9px; border-radius: 999px; white-space: nowrap; }
   .badge .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
   .badge.good { background: var(--good-bg); color: var(--good); }
   .badge.good .dot { background: var(--good); }
@@ -285,22 +248,8 @@
   .badge.nodata .dot { background: var(--muted); }
 
   /* ---------- Detail card ---------- */
-  .detail-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-  .detail-header {
-    padding: 20px 22px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
+  .detail-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+  .detail-header { padding: 20px 22px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
   .detail-title h3 { font-size: 19px; font-weight: 700; }
   .detail-title .meta { color: var(--muted); font-size: 13px; margin-top: 4px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .detail-title .meta .dividerdot::before { content: "·"; margin-right: 10px; color: var(--border-strong); }
@@ -308,6 +257,8 @@
   .detail-price { text-align: right; }
   .detail-price .value { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
   .detail-price .unit { font-size: 12px; color: var(--muted); }
+  .live-chip { display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--accent); margin-top: 4px; }
+  .live-chip .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 
   .detail-body { padding: 22px; display: grid; gap: 22px; }
 
@@ -325,15 +276,7 @@
   .swatch.median { width: 14px; height: 0; border-top: 2px dashed var(--muted); border-radius: 0; }
 
   .chart { position: relative; padding-top: 4px; }
-  .chart-row {
-    display: grid;
-    grid-template-columns: 168px 1fr 72px;
-    align-items: center;
-    gap: 10px;
-    height: 22px;
-    margin-bottom: 5px;
-    position: relative;
-  }
+  .chart-row { display: grid; grid-template-columns: 168px 1fr 72px; align-items: center; gap: 10px; height: 22px; margin-bottom: 5px; position: relative; }
   .chart-row .rname { font-size: 12px; color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .chart-row.self .rname { color: var(--text-primary); font-weight: 700; }
   .chart-track { position: relative; height: 10px; background: transparent; }
@@ -348,7 +291,6 @@
   .chart-axis-area .tick::before { content: ""; position: absolute; left: 50%; top: -6px; width: 1px; height: 4px; background: var(--border-strong); }
 
   .chart-note { font-size: 11.5px; color: var(--muted); margin-top: 10px; }
-
   .subhead { font-size: 11.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
 
   .annotation-callout { display: flex; gap: 8px; align-items: flex-start; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.5; }
@@ -384,7 +326,7 @@
   .nodata-card { padding: 40px 22px; text-align: center; color: var(--text-secondary); }
   .nodata-card svg { width: 34px; height: 34px; color: var(--muted); margin-bottom: 12px; }
   .nodata-card h4 { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
-  .nodata-card p { font-size: 13px; max-width: 46ch; margin: 0 auto; line-height: 1.55; }
+  .nodata-card p { font-size: 13px; max-width: 46ch; margin: 0 auto 14px; line-height: 1.55; }
 
   footer.notes { max-width: 1040px; margin: 0 auto; padding: 0 20px 48px; font-size: 12px; color: var(--muted); line-height: 1.6; }
   footer.notes strong { color: var(--text-secondary); }
@@ -429,7 +371,7 @@
       <h2>Portfolio overview</h2>
       <span class="hint" id="snapshotHint"></span>
     </div>
-    <p class="lede">Live nightly rates for 7 Hotelchamp properties connected via Trivago, benchmarked against up to 8 nearby competitors matched on city, star rating and hotel type. Position is measured against the <strong>competitor median</strong> to limit distortion from outlier luxury or budget listings.</p>
+    <p class="lede">Rates for 7 Hotelchamp properties connected via Trivago, benchmarked against up to 8 nearby competitors matched on city, star rating and hotel type. Position is measured against the <strong>competitor median</strong> to limit distortion from outlier luxury or budget listings. Snapshot dates refresh automatically once a day.</p>
 
     <div class="subhead" style="margin-top:16px;">Alerts</div>
     <div class="alerts-panel" id="alertsMount"></div>
@@ -464,25 +406,43 @@
 </main>
 
 <footer class="notes">
-  <p><strong>Methodology.</strong> Rates are 2-adult, 1-night live rates pulled from trivago's metasearch, shown in EUR, for the four snapshot dates in the date picker — pick one to see that day's market. Competitor sets are up to 8 nearby properties closest in price to the subject hotel, matching its city and star rating via radius search around each hotel's coordinates; sister properties under the same ownership group are excluded. "Position" compares the subject rate to the <strong>median</strong> of that competitor set, which is more resistant to outliers than a plain average — this matters most for wide 5-star markets (Milan, London, Amsterdam) that span boutique design hotels through ultra-luxury flagships. Aethos Milan's Fri 25 Sep snapshot shows an unusually high rate across the whole Milan market that date — read as a live demand spike, not a data error.</p>
-  <p style="margin-top:8px;"><strong>Known gaps.</strong> Aethos Monterosa (Ayas, Aosta Valley) is a remote ski-resort property with thin Trivago coverage — it has no bookable rate for Thu 15 Oct or Fri 30 Oct, and no comparable competitor set was found nearby for any date. Bad Ischl (Grand Elisabeth's market) is a small spa town, so a few of its competitors don't return a live rate on every snapshot date — this is normal thin-market coverage, not a broken listing.</p>
-  <p style="margin-top:8px;"><strong>Date picker.</strong> Live rate pulls are point-in-time, so the picker is limited to the four dates already fetched rather than any arbitrary day. Ask for a different date and it can be added as a new snapshot.</p>
+  <p><strong>Methodology.</strong> Rates are 2-adult, 1-night rates from trivago's metasearch, shown in EUR. Competitor sets are up to 8 nearby properties closest in price to the subject hotel, matching its city and star rating via radius search around each hotel's coordinates; sister properties under the same ownership group are excluded. "Position" compares the subject rate to the <strong>median</strong> of that competitor set, which is more resistant to outliers than a plain average — this matters most for wide 5-star markets (Milan, London, Amsterdam) that span boutique design hotels through ultra-luxury flagships.</p>
+  <p style="margin-top:8px;"><strong>Refresh.</strong> A scheduled job pulls fresh rates for all 7 hotels once a day and republishes this page automatically — no action needed. The date picker marks every date that currently has data with a dot.</p>
+  <p style="margin-top:8px;"><strong>Known gaps.</strong> Aethos Monterosa (Ayas, Aosta Valley) is a remote ski-resort property with thin Trivago coverage, and no comparable competitor set has been found nearby on any date fetched so far. Bad Ischl (Grand Elisabeth's market) is a small spa town, so a few of its competitors don't return a live rate on every date — this is normal thin-market coverage, not a broken listing.</p>
 </footer>
 
 <script>
 (function(){
   "use strict";
 
-  var DATES = [
-    { id: "2026-09-25", y: 2026, m: 8,  d: 25, label: "Fri 25 Sep", sub: "This weekend" },
-    { id: "2026-10-15", y: 2026, m: 9,  d: 15, label: "Thu 15 Oct", sub: "Current" },
-    { id: "2026-10-30", y: 2026, m: 9,  d: 30, label: "Fri 30 Oct", sub: "+6 weeks" },
-    { id: "2026-12-18", y: 2026, m: 11, d: 18, label: "Fri 18 Dec", sub: "Peak season" }
-  ];
   var MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var MONTH_ABBR = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var DOW_ABBR = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
   var DOW = ["Su","Mo","Tu","We","Th","Fr","Sa"];
 
+  function pad2(n){ return n < 10 ? "0" + n : "" + n; }
+  function isoOf(y, m, d){ return y + "-" + pad2(m + 1) + "-" + pad2(d); }
+  function parseIso(id){ var p = id.split("-").map(Number); return { y: p[0], m: p[1] - 1, d: p[2] }; }
+  function shortLabel(y, m, d){ return DOW_ABBR[new Date(y, m, d).getDay()] + " " + d + " " + MONTH_ABBR[m]; }
+  function addOneDay(iso){
+    var p = parseIso(iso);
+    var dt = new Date(p.y, p.m, p.d + 1);
+    return isoOf(dt.getFullYear(), dt.getMonth(), dt.getDate());
+  }
+  function stripTime(dt){ return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()); }
+
+  var TODAY = stripTime(new Date());
+  var MIN_DATE = new Date(TODAY.getFullYear(), TODAY.getMonth(), TODAY.getDate() + 1);
+  var MAX_DATE = new Date(TODAY.getFullYear(), TODAY.getMonth() + 18, TODAY.getDate());
+
   function prices(a,b,c,d){ return { "2026-09-25": a, "2026-10-15": b, "2026-10-30": c, "2026-12-18": d }; }
+
+  var DATES = [
+    { id: "2026-09-25", y: 2026, m: 8,  d: 25, label: "Fri 25 Sep" },
+    { id: "2026-10-15", y: 2026, m: 9,  d: 15, label: "Thu 15 Oct" },
+    { id: "2026-10-30", y: 2026, m: 9,  d: 30, label: "Fri 30 Oct" },
+    { id: "2026-12-18", y: 2026, m: 11, d: 18, label: "Fri 18 Dec" }
+  ];
 
   var ANNOTATION_LIST = [
     { hotelId: "aethos-milan", dateId: "2026-09-25", note: "Milan Fashion Week (womenswear, S/S 2027) ran 22–28 Sep 2026 — citywide demand lifted both Aethos Milan and its competitor set that week. Read the spike as demand, not a data error." },
@@ -491,6 +451,8 @@
   function getAnnotation(hotelId, dateId){
     return ANNOTATION_LIST.filter(function(a){ return a.hotelId === hotelId && a.dateId === dateId; })[0] || null;
   }
+
+  function byDateEntry(price, comps){ return { price: price, competitors: comps, live: false }; }
 
   var DATA = [
     {
@@ -501,17 +463,33 @@
       type: "Boutique City Hotel",
       reviewRating: 8.8,
       reviewCount: 20114,
-      prices: prices(203, 195, 170, 119),
-      competitors: [
-        { name: "Prinsengracht Hotel", rating: 7.8, prices: prices(220, 195, 213, 162) },
-        { name: "Hotel Atlantis Amsterdam", rating: 7.3, prices: prices(200, 194, 178, 149) },
-        { name: "Hotel Hermitage Amsterdam", rating: 7.0, prices: prices(233, 192, 218, 166) },
-        { name: "Hotel Park Plantage", rating: 7.2, prices: prices(null, 204, 207, 137) },
-        { name: "Hotel Victorie", rating: 6.8, prices: prices(224, 212, null, 105) },
-        { name: "Hotel V Frederiksplein", rating: 7.6, prices: prices(294, 217, 232, 156) },
-        { name: "Q-Factory Hotel", rating: 6.9, prices: prices(167, 218, 194, 162) },
-        { name: "Bastion Hotel Amsterdam Amstel", rating: 7.1, prices: prices(150, 158, 144, 155) }
-      ]
+      meta: { lat: 52.34995, lon: 4.9186, country: "NL", currency: "EUR", hotelRating: {"3star": true}, matchName: "casa amsterdam" },
+      byDate: {
+        "2026-09-25": byDateEntry(203, [
+          {name:"Prinsengracht Hotel", price:220, rating:7.8}, {name:"Hotel Atlantis Amsterdam", price:200, rating:7.3},
+          {name:"Hotel Hermitage Amsterdam", price:233, rating:7.0}, {name:"Hotel Victorie", price:224, rating:6.8},
+          {name:"Hotel V Frederiksplein", price:294, rating:7.6}, {name:"Q-Factory Hotel", price:167, rating:6.9},
+          {name:"Bastion Hotel Amsterdam Amstel", price:150, rating:7.1}
+        ]),
+        "2026-10-15": byDateEntry(195, [
+          {name:"Prinsengracht Hotel", price:195, rating:7.8}, {name:"Hotel Atlantis Amsterdam", price:194, rating:7.3},
+          {name:"Hotel Hermitage Amsterdam", price:192, rating:7.0}, {name:"Hotel Park Plantage", price:204, rating:7.2},
+          {name:"Hotel Victorie", price:212, rating:6.8}, {name:"Hotel V Frederiksplein", price:217, rating:7.6},
+          {name:"Q-Factory Hotel", price:218, rating:6.9}, {name:"Bastion Hotel Amsterdam Amstel", price:158, rating:7.1}
+        ]),
+        "2026-10-30": byDateEntry(170, [
+          {name:"Prinsengracht Hotel", price:213, rating:7.8}, {name:"Hotel Atlantis Amsterdam", price:178, rating:7.3},
+          {name:"Hotel Hermitage Amsterdam", price:218, rating:7.0}, {name:"Hotel Park Plantage", price:207, rating:7.2},
+          {name:"Hotel V Frederiksplein", price:232, rating:7.6}, {name:"Q-Factory Hotel", price:194, rating:6.9},
+          {name:"Bastion Hotel Amsterdam Amstel", price:144, rating:7.1}
+        ]),
+        "2026-12-18": byDateEntry(119, [
+          {name:"Prinsengracht Hotel", price:162, rating:7.8}, {name:"Hotel Atlantis Amsterdam", price:149, rating:7.3},
+          {name:"Hotel Hermitage Amsterdam", price:166, rating:7.0}, {name:"Hotel Park Plantage", price:137, rating:7.2},
+          {name:"Hotel Victorie", price:105, rating:6.8}, {name:"Hotel V Frederiksplein", price:156, rating:7.6},
+          {name:"Q-Factory Hotel", price:162, rating:6.9}, {name:"Bastion Hotel Amsterdam Amstel", price:155, rating:7.1}
+        ])
+      }
     },
     {
       id: "okura-amsterdam",
@@ -521,17 +499,33 @@
       type: "Luxury Business Hotel",
       reviewRating: 9.2,
       reviewCount: 9840,
-      prices: prices(611, 438, 476, 324),
-      competitors: [
-        { name: "Hyatt Regency Amsterdam", rating: 9.0, prices: prices(410, 436, 281, 237) },
-        { name: "Amsterdam Marriott Hotel", rating: 8.5, prices: prices(374, 436, 309, 318) },
-        { name: "Tivoli Doelen Amsterdam Hotel", rating: 9.1, prices: prices(449, 431, 383, 263) },
-        { name: "Andaz Amsterdam Prinsengracht, by Hyatt", rating: 9.3, prices: prices(696, 473, 393, 351) },
-        { name: "The College Hotel Amsterdam", rating: 8.4, prices: prices(456, 376, 299, 247) },
-        { name: "Pillows Grand Boutique Hotel Maurits", rating: 9.6, prices: prices(498, 583, 371, 364) },
-        { name: "Bilderberg Garden Hotel", rating: 8.0, prices: prices(284, 251, 233, 192) },
-        { name: "Sofitel Legend The Grand Amsterdam", rating: 9.3, prices: prices(671, 637, 404, 458) }
-      ]
+      meta: { lat: 52.34862, lon: 4.89301, country: "NL", currency: "EUR", hotelRating: {"5star": true}, matchName: "okura amsterdam" },
+      byDate: {
+        "2026-09-25": byDateEntry(611, [
+          {name:"Hyatt Regency Amsterdam", price:410, rating:9.0}, {name:"Amsterdam Marriott Hotel", price:374, rating:8.5},
+          {name:"Tivoli Doelen Amsterdam Hotel", price:449, rating:9.1}, {name:"Andaz Amsterdam Prinsengracht, by Hyatt", price:696, rating:9.3},
+          {name:"The College Hotel Amsterdam", price:456, rating:8.4}, {name:"Pillows Grand Boutique Hotel Maurits", price:498, rating:9.6},
+          {name:"Bilderberg Garden Hotel", price:284, rating:8.0}, {name:"Sofitel Legend The Grand Amsterdam", price:671, rating:9.3}
+        ]),
+        "2026-10-15": byDateEntry(438, [
+          {name:"Hyatt Regency Amsterdam", price:436, rating:9.0}, {name:"Amsterdam Marriott Hotel", price:436, rating:8.5},
+          {name:"Tivoli Doelen Amsterdam Hotel", price:431, rating:9.1}, {name:"Andaz Amsterdam Prinsengracht, by Hyatt", price:473, rating:9.3},
+          {name:"The College Hotel Amsterdam", price:376, rating:8.4}, {name:"Pillows Grand Boutique Hotel Maurits", price:583, rating:9.6},
+          {name:"Bilderberg Garden Hotel", price:251, rating:8.0}, {name:"Sofitel Legend The Grand Amsterdam", price:637, rating:9.3}
+        ]),
+        "2026-10-30": byDateEntry(476, [
+          {name:"Hyatt Regency Amsterdam", price:281, rating:9.0}, {name:"Amsterdam Marriott Hotel", price:309, rating:8.5},
+          {name:"Tivoli Doelen Amsterdam Hotel", price:383, rating:9.1}, {name:"Andaz Amsterdam Prinsengracht, by Hyatt", price:393, rating:9.3},
+          {name:"The College Hotel Amsterdam", price:299, rating:8.4}, {name:"Pillows Grand Boutique Hotel Maurits", price:371, rating:9.6},
+          {name:"Bilderberg Garden Hotel", price:233, rating:8.0}, {name:"Sofitel Legend The Grand Amsterdam", price:404, rating:9.3}
+        ]),
+        "2026-12-18": byDateEntry(324, [
+          {name:"Hyatt Regency Amsterdam", price:237, rating:9.0}, {name:"Amsterdam Marriott Hotel", price:318, rating:8.5},
+          {name:"Tivoli Doelen Amsterdam Hotel", price:263, rating:9.1}, {name:"Andaz Amsterdam Prinsengracht, by Hyatt", price:351, rating:9.3},
+          {name:"The College Hotel Amsterdam", price:247, rating:8.4}, {name:"Pillows Grand Boutique Hotel Maurits", price:364, rating:9.6},
+          {name:"Bilderberg Garden Hotel", price:192, rating:8.0}, {name:"Sofitel Legend The Grand Amsterdam", price:458, rating:9.3}
+        ])
+      }
     },
     {
       id: "aethos-milan",
@@ -541,17 +535,33 @@
       type: "Boutique Design Hotel",
       reviewRating: 9.1,
       reviewCount: 3356,
-      prices: prices(935, 382, 329, 363),
-      competitors: [
-        { name: "Magna Pars l'Hotel à Parfum", rating: 9.1, prices: prices(724, 362, 302, 302) },
-        { name: "Hotel Pierre Milano", rating: 7.9, prices: prices(357, 335, 285, 241) },
-        { name: "Tivoli President Milano Hotel", rating: 8.9, prices: prices(929, 464, 369, 292) },
-        { name: "Radisson Collection Hotel, Santa Sofia", rating: 9.0, prices: prices(988, 507, 416, 352) },
-        { name: "Galleria Vik Milano", rating: 8.2, prices: prices(792, 566, 514, 362) },
-        { name: "Palazzo Touring Club Milan", rating: 9.1, prices: prices(1068, 602, 526, 431) },
-        { name: "Sina The Gray", rating: 8.2, prices: prices(936, 620, 476, 410) },
-        { name: "Palazzo Cordusio, a Gran Melia Hotel", rating: 9.0, prices: prices(2027, 918, 934, 843) }
-      ]
+      meta: { lat: 45.45319, lon: 9.1792, country: "IT", currency: "EUR", hotelRating: {"5star": true}, matchName: "aethos milan" },
+      byDate: {
+        "2026-09-25": byDateEntry(935, [
+          {name:"Magna Pars l'Hotel à Parfum", price:724, rating:9.1}, {name:"Hotel Pierre Milano", price:357, rating:7.9},
+          {name:"Tivoli President Milano Hotel", price:929, rating:8.9}, {name:"Radisson Collection Hotel, Santa Sofia", price:988, rating:9.0},
+          {name:"Galleria Vik Milano", price:792, rating:8.2}, {name:"Palazzo Touring Club Milan", price:1068, rating:9.1},
+          {name:"Sina The Gray", price:936, rating:8.2}, {name:"Palazzo Cordusio, a Gran Melia Hotel", price:2027, rating:9.0}
+        ]),
+        "2026-10-15": byDateEntry(382, [
+          {name:"Magna Pars l'Hotel à Parfum", price:362, rating:9.1}, {name:"Hotel Pierre Milano", price:335, rating:7.9},
+          {name:"Tivoli President Milano Hotel", price:464, rating:8.9}, {name:"Radisson Collection Hotel, Santa Sofia", price:507, rating:9.0},
+          {name:"Galleria Vik Milano", price:566, rating:8.2}, {name:"Palazzo Touring Club Milan", price:602, rating:9.1},
+          {name:"Sina The Gray", price:620, rating:8.2}, {name:"Palazzo Cordusio, a Gran Melia Hotel", price:918, rating:9.0}
+        ]),
+        "2026-10-30": byDateEntry(329, [
+          {name:"Magna Pars l'Hotel à Parfum", price:302, rating:9.1}, {name:"Hotel Pierre Milano", price:285, rating:7.9},
+          {name:"Tivoli President Milano Hotel", price:369, rating:8.9}, {name:"Radisson Collection Hotel, Santa Sofia", price:416, rating:9.0},
+          {name:"Galleria Vik Milano", price:514, rating:8.2}, {name:"Palazzo Touring Club Milan", price:526, rating:9.1},
+          {name:"Sina The Gray", price:476, rating:8.2}, {name:"Palazzo Cordusio, a Gran Melia Hotel", price:934, rating:9.0}
+        ]),
+        "2026-12-18": byDateEntry(363, [
+          {name:"Magna Pars l'Hotel à Parfum", price:302, rating:9.1}, {name:"Hotel Pierre Milano", price:241, rating:7.9},
+          {name:"Tivoli President Milano Hotel", price:292, rating:8.9}, {name:"Radisson Collection Hotel, Santa Sofia", price:352, rating:9.0},
+          {name:"Galleria Vik Milano", price:362, rating:8.2}, {name:"Palazzo Touring Club Milan", price:431, rating:9.1},
+          {name:"Sina The Gray", price:410, rating:8.2}, {name:"Palazzo Cordusio, a Gran Melia Hotel", price:843, rating:9.0}
+        ])
+      }
     },
     {
       id: "aethos-monterosa",
@@ -561,8 +571,13 @@
       type: "Boutique Mountain Resort",
       reviewRating: 9.1,
       reviewCount: 1024,
-      prices: prices(361, null, null, 492),
-      competitors: []
+      meta: { lat: 45.84687, lon: 7.73404, country: "IT", currency: "EUR", hotelRating: {"5star": true}, matchName: "aethos monterosa" },
+      byDate: {
+        "2026-09-25": byDateEntry(361, []),
+        "2026-10-15": byDateEntry(null, []),
+        "2026-10-30": byDateEntry(null, []),
+        "2026-12-18": byDateEntry(492, [])
+      }
     },
     {
       id: "aethos-london",
@@ -572,17 +587,33 @@
       type: "Boutique Design Hotel",
       reviewRating: 9.1,
       reviewCount: 1766,
-      prices: prices(384, 341, 267, 316),
-      competitors: [
-        { name: "Town Hall Hotel - Shoreditch", rating: 8.8, prices: prices(null, 336, 242, 256) },
-        { name: "Sun Street Hotel Shoreditch", rating: 9.1, prices: prices(303, 335, 261, 264) },
-        { name: "Montcalm Royal London House", rating: 8.9, prices: prices(366, 335, 288, 299) },
-        { name: "South Place Hotel", rating: 9.1, prices: prices(336, 370, 280, 280) },
-        { name: "Virgin Hotels London - Shoreditch", rating: 8.7, prices: prices(317, 310, null, 214) },
-        { name: "Courthouse Hotel Shoreditch", rating: 8.1, prices: prices(278, 296, 267, 267) },
-        { name: "art'otel London Hoxton", rating: 9.3, prices: prices(323, 391, 280, 300) },
-        { name: "Boundary Shoreditch", rating: 8.6, prices: prices(344, 286, 211, 257) }
-      ]
+      meta: { lat: 51.52507, lon: -0.08297, country: "GB", currency: "EUR", hotelRating: {"5star": true}, matchName: "aethos london" },
+      byDate: {
+        "2026-09-25": byDateEntry(384, [
+          {name:"Sun Street Hotel Shoreditch", price:303, rating:9.1}, {name:"Montcalm Royal London House", price:366, rating:8.9},
+          {name:"South Place Hotel", price:336, rating:9.1}, {name:"Virgin Hotels London - Shoreditch", price:317, rating:8.7},
+          {name:"Courthouse Hotel Shoreditch", price:278, rating:8.1}, {name:"art'otel London Hoxton", price:323, rating:9.3},
+          {name:"Boundary Shoreditch", price:344, rating:8.6}
+        ]),
+        "2026-10-15": byDateEntry(341, [
+          {name:"Town Hall Hotel - Shoreditch", price:336, rating:8.8}, {name:"Sun Street Hotel Shoreditch", price:335, rating:9.1},
+          {name:"Montcalm Royal London House", price:335, rating:8.9}, {name:"South Place Hotel", price:370, rating:9.1},
+          {name:"Virgin Hotels London - Shoreditch", price:310, rating:8.7}, {name:"Courthouse Hotel Shoreditch", price:296, rating:8.1},
+          {name:"art'otel London Hoxton", price:391, rating:9.3}, {name:"Boundary Shoreditch", price:286, rating:8.6}
+        ]),
+        "2026-10-30": byDateEntry(267, [
+          {name:"Town Hall Hotel - Shoreditch", price:242, rating:8.8}, {name:"Sun Street Hotel Shoreditch", price:261, rating:9.1},
+          {name:"Montcalm Royal London House", price:288, rating:8.9}, {name:"South Place Hotel", price:280, rating:9.1},
+          {name:"Courthouse Hotel Shoreditch", price:267, rating:8.1}, {name:"art'otel London Hoxton", price:280, rating:9.3},
+          {name:"Boundary Shoreditch", price:211, rating:8.6}
+        ]),
+        "2026-12-18": byDateEntry(316, [
+          {name:"Town Hall Hotel - Shoreditch", price:256, rating:8.8}, {name:"Sun Street Hotel Shoreditch", price:264, rating:9.1},
+          {name:"Montcalm Royal London House", price:299, rating:8.9}, {name:"South Place Hotel", price:280, rating:9.1},
+          {name:"Virgin Hotels London - Shoreditch", price:214, rating:8.7}, {name:"Courthouse Hotel Shoreditch", price:267, rating:8.1},
+          {name:"art'otel London Hoxton", price:300, rating:9.3}, {name:"Boundary Shoreditch", price:257, rating:8.6}
+        ])
+      }
     },
     {
       id: "grand-elisabeth",
@@ -592,15 +623,24 @@
       type: "Spa & Resort Hotel",
       reviewRating: 8.9,
       reviewCount: 1375,
-      prices: prices(244, 186, 171, 240),
-      competitors: [
-        { name: "Villa Bertholini", rating: 9.8, prices: prices(null, 165, null, null) },
-        { name: "Villa Traun", rating: null, prices: prices(null, 199, null, null) },
-        { name: "Haus Wiesingerstrasse", rating: 8.2, prices: prices(null, 244, null, null) },
-        { name: "Villa Seilern Vital Resort", rating: 9.0, prices: prices(289, 250, 250, null) },
-        { name: "Boutiquehotel Hubertushof", rating: 8.7, prices: prices(null, 262, 272, 301) },
-        { name: "Hotel Goldenes Schiff", rating: 8.8, prices: prices(254, 345, null, null) }
-      ]
+      meta: { lat: 47.71114, lon: 13.61726, country: "AT", currency: "EUR", hotelRating: {"4star": true}, matchName: "grand elisabeth" },
+      byDate: {
+        "2026-09-25": byDateEntry(244, [
+          {name:"Hotel Goldenes Schiff", price:254, rating:8.8}, {name:"Villa Seilern Vital Resort", price:289, rating:9.0}
+        ]),
+        "2026-10-15": byDateEntry(186, [
+          {name:"Villa Bertholini", price:165, rating:9.8}, {name:"Villa Traun", price:199, rating:null},
+          {name:"Haus Wiesingerstrasse", price:244, rating:8.2}, {name:"Villa Seilern Vital Resort", price:250, rating:9.0},
+          {name:"Boutiquehotel Hubertushof", price:262, rating:8.7}, {name:"Hotel Goldenes Schiff", price:345, rating:8.8}
+        ]),
+        "2026-10-30": byDateEntry(171, [
+          {name:"Villa Seilern Vital Resort", price:250, rating:9.0}, {name:"Boutiquehotel Hubertushof", price:272, rating:8.7},
+          {name:"EurothermenResort Bad Ischl - Royal", price:511, rating:8.9}
+        ]),
+        "2026-12-18": byDateEntry(240, [
+          {name:"Boutiquehotel Hubertushof", price:301, rating:8.7}, {name:"EurothermenResort Bad Ischl - Royal", price:488, rating:8.9}
+        ])
+      }
     },
     {
       id: "avenida-24",
@@ -610,17 +650,30 @@
       type: "Mountain / Ski Hotel",
       reviewRating: 8.6,
       reviewCount: 1728,
-      prices: prices(162, 118, 150, 317),
-      competitors: [
-        { name: "Auhof Wirtshaus & Suiten", rating: 9.3, prices: prices(184, 161, null, 250) },
-        { name: "Aparthotel Waidmannsheil", rating: 9.1, prices: prices(241, 173, 243, 470) },
-        { name: "Sonja Alpine Resort", rating: 8.9, prices: prices(244, 184, 314, null) },
-        { name: "ever.grün Kaprun", rating: 9.1, prices: prices(240, 200, 200, null) },
-        { name: "LEDERER Boutique Hotel", rating: 9.7, prices: prices(244, 201, null, null) },
-        { name: "Bergdorf Hotel Zaglgut Ski in Ski out", rating: 9.5, prices: prices(320, 230, 230, 275) },
-        { name: "Das Alpenhaus Kaprun", rating: 8.9, prices: prices(248, 240, 266, null) },
-        { name: "Hotel Kaprunerhof", rating: 9.3, prices: prices(297, 289, 358, 285) }
-      ]
+      meta: { lat: 47.26955, lon: 12.7546, country: "AT", currency: "EUR", hotelRating: {"4star": true}, matchName: "24 by avenida", excludeName: "avenida" },
+      byDate: {
+        "2026-09-25": byDateEntry(162, [
+          {name:"Auhof Wirtshaus & Suiten", price:184, rating:9.3}, {name:"Aparthotel Waidmannsheil", price:241, rating:9.1},
+          {name:"Sonja Alpine Resort", price:244, rating:8.9}, {name:"ever.grün Kaprun", price:240, rating:9.1},
+          {name:"LEDERER Boutique Hotel", price:244, rating:9.7}, {name:"Bergdorf Hotel Zaglgut Ski in Ski out", price:320, rating:9.5},
+          {name:"Das Alpenhaus Kaprun", price:248, rating:8.9}, {name:"Hotel Kaprunerhof", price:297, rating:9.3}
+        ]),
+        "2026-10-15": byDateEntry(118, [
+          {name:"Auhof Wirtshaus & Suiten", price:161, rating:9.3}, {name:"Aparthotel Waidmannsheil", price:173, rating:9.1},
+          {name:"Sonja Alpine Resort", price:184, rating:8.9}, {name:"ever.grün Kaprun", price:200, rating:9.1},
+          {name:"LEDERER Boutique Hotel", price:201, rating:9.7}, {name:"Bergdorf Hotel Zaglgut Ski in Ski out", price:230, rating:9.5},
+          {name:"Das Alpenhaus Kaprun", price:240, rating:8.9}, {name:"Hotel Kaprunerhof", price:289, rating:9.3}
+        ]),
+        "2026-10-30": byDateEntry(150, [
+          {name:"Aparthotel Waidmannsheil", price:243, rating:9.1}, {name:"Sonja Alpine Resort", price:314, rating:8.9},
+          {name:"ever.grün Kaprun", price:200, rating:9.1}, {name:"Bergdorf Hotel Zaglgut Ski in Ski out", price:230, rating:9.5},
+          {name:"Hotel Kaprunerhof", price:358, rating:9.3}
+        ]),
+        "2026-12-18": byDateEntry(317, [
+          {name:"Auhof Wirtshaus & Suiten", price:250, rating:9.3}, {name:"Aparthotel Waidmannsheil", price:470, rating:9.1},
+          {name:"Bergdorf Hotel Zaglgut Ski in Ski out", price:275, rating:9.5}, {name:"Hotel Kaprunerhof", price:285, rating:9.3}
+        ])
+      }
     }
   ];
 
@@ -645,13 +698,29 @@
     return s + n.toFixed(1) + "%";
   }
   function starStr(n){ return "★".repeat(n) + "☆".repeat(5-n); }
+  function parsePrice(str){
+    if (str === null || str === undefined) return null;
+    var digits = String(str).replace(/[^\d]/g, "");
+    if (!digits) return null;
+    return parseInt(digits, 10);
+  }
 
   var activeDate = "2026-10-15";
   var activeHotel = DATA[0].id;
 
+  function dateEntry(id){
+    var found = DATES.filter(function(d){return d.id === id;})[0];
+    if (found) return found;
+    var p = parseIso(id);
+    return { id: id, y: p.y, m: p.m, d: p.d, label: shortLabel(p.y, p.m, p.d) };
+  }
+
+  function getByDate(h, dateId){ return h.byDate[dateId] || { price: null, competitors: [], live: false }; }
+
   function stats(h, dateId){
-    var price = h.prices[dateId];
-    var compPrices = h.competitors.map(function(c){ return c.prices[dateId]; }).filter(function(p){ return p !== null && p !== undefined; });
+    var bd = getByDate(h, dateId);
+    var price = bd.price;
+    var compPrices = bd.competitors.map(function(c){ return c.price; }).filter(function(p){ return p !== null && p !== undefined; });
     var compMedian = median(compPrices);
     var compAvg = average(compPrices);
     var deltaMedian = (price !== null && price !== undefined && compMedian) ? ((price - compMedian) / compMedian) * 100 : null;
@@ -659,7 +728,7 @@
     if (price === null || price === undefined) status = "nodata";
     else if (compMedian === null) status = "nodata";
     else status = (Math.abs(deltaMedian) <= 10 ? "good" : (Math.abs(deltaMedian) <= 30 ? "warning" : "serious"));
-    return { price: price, compMedian: compMedian, compAvg: compAvg, deltaMedian: deltaMedian, status: status, compCount: compPrices.length };
+    return { price: price, compMedian: compMedian, compAvg: compAvg, deltaMedian: deltaMedian, status: status, compCount: compPrices.length, competitors: bd.competitors, live: !!bd.live, fetchedAt: bd.fetchedAt || null };
   }
 
   function positionLabel(st){
@@ -720,8 +789,8 @@
 
   // ---------- Detail ----------
   function chartRowsHTML(h, dateId, st){
-    var all = h.competitors.map(function(c){ return {name:c.name, price:c.prices[dateId], self:false}; })
-      .filter(function(r){ return r.price !== null && r.price !== undefined; });
+    var all = st.competitors.filter(function(c){ return c.price !== null && c.price !== undefined; })
+      .map(function(c){ return {name:c.name, price:c.price, self:false}; });
     all.push({name: h.name, price: st.price, self:true});
     all.sort(function(a,b){ return a.price - b.price; });
     var max = Math.max.apply(null, all.map(function(a){return a.price;})) * 1.06;
@@ -745,9 +814,9 @@
       return '<span class="tick" style="left:' + (f*100).toFixed(2) + '%">' + fmtEUR(val) + '</span>';
     }).join("");
 
-    var missing = h.competitors.length - (all.length - 1);
+    var missing = st.competitors.length - (all.length - 1);
     var note = missing > 0
-      ? '<div class="chart-note">' + missing + ' of ' + h.competitors.length + ' tracked competitors had no live rate for this date and are hidden from the chart below.</div>'
+      ? '<div class="chart-note">' + missing + ' of ' + st.competitors.length + ' tracked competitors had no rate for this date and are hidden from the chart below.</div>'
       : "";
 
     return '<div class="chart-legend">' +
@@ -760,7 +829,7 @@
   }
 
   function compTableHTML(h, dateId, st){
-    var all = h.competitors.map(function(c){ return {name:c.name, price:c.prices[dateId], rating:c.rating, self:false}; });
+    var all = st.competitors.map(function(c){ return {name:c.name, price:c.price, rating:c.rating, self:false}; });
     all.push({name: h.name, price: st.price, rating: h.reviewRating, self:true});
     all.sort(function(a,b){
       var ap = a.price === null || a.price === undefined ? Infinity : a.price;
@@ -793,7 +862,7 @@
       if (p.price !== null && p.price !== undefined) allVals.push(p.price);
       if (p.median !== null && p.median !== undefined) allVals.push(p.median);
     });
-    if (allVals.length === 0) return '<div class="spark-empty">Not enough data across snapshot dates to plot a trend.</div>';
+    if (allVals.length === 0 || pts.length < 2) return '<div class="spark-empty">Not enough data across snapshot dates to plot a trend.</div>';
 
     var min = Math.min.apply(null, allVals), max = Math.max.apply(null, allVals);
     if (min === max) { min *= 0.9; max *= 1.1; }
@@ -851,15 +920,20 @@
 
   function renderDetail(h, dateId){
     var st = stats(h, dateId);
-    document.getElementById("compCountHint").textContent = st.compCount + " of " + h.competitors.length;
+    document.getElementById("compCountHint").textContent = st.compCount + " of " + st.competitors.length;
     var mount = document.getElementById("detailMount");
-    var dateLabel = DATES.filter(function(d){return d.id === dateId;})[0].label;
+    var dateLabel = dateEntry(dateId).label;
 
     var ann = getAnnotation(h.id, dateId);
     var annotationHTML = ann
       ? '<div class="annotation-callout"><span class="flag">🏷️</span><span>' + ann.note + '</span></div>'
       : "";
-    var sparkHTML = '<div><div class="subhead">Rate trend across snapshot dates</div>' + buildSparkline(h) + '</div>';
+    var sparkHTML = DATES.length >= 2
+      ? '<div><div class="subhead">Rate trend across snapshot dates</div>' + buildSparkline(h) + '</div>'
+      : "";
+    var liveChip = st.live
+      ? '<div class="live-chip"><span class="dot"></span>Live · fetched ' + (st.fetchedAt ? new Date(st.fetchedAt).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}) : "just now") + '</div>'
+      : "";
 
     if (st.price === null || st.price === undefined) {
       mount.innerHTML =
@@ -872,15 +946,15 @@
           '</div>' +
           '<div class="nodata-card">' +
             '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>' +
-            '<h4>No live rate for ' + dateLabel + '</h4>' +
-            '<p>Trivago returned no bookable rate for ' + h.name + ' on this date across connected channels. Try another date in the picker above — this property has shown live rates on some snapshot dates and not others.</p>' +
+            '<h4>No rate loaded for ' + dateLabel + '</h4>' +
+            '<p>No snapshot has been fetched for ' + h.name + ' on this date yet. Try a date marked with a dot in the picker, or wait for tomorrow’s automatic refresh.</p>' +
           '</div>' +
           '<div class="detail-body" style="padding-top:0;">' + sparkHTML + '</div>' +
         '</div>';
       return;
     }
 
-    var hasComps = h.competitors.length > 0;
+    var hasComps = st.competitors.length > 0;
 
     mount.innerHTML =
       '<div class="detail-card">' +
@@ -892,6 +966,7 @@
           '<div class="detail-price">' +
             '<div class="value tabular">' + fmtEUR(st.price) + '</div>' +
             '<div class="unit">/ night, 2 adults · ' + dateLabel + '</div>' +
+            liveChip +
           '</div>' +
         '</div>' +
         '<div class="detail-body">' +
@@ -905,7 +980,7 @@
           sparkHTML +
           (hasComps
             ? '<div><div class="subhead">Price vs. competitors — ' + dateLabel + '</div>' + chartRowsHTML(h, dateId, st) + '</div><div><div class="subhead">All tracked competitors</div>' + compTableHTML(h, dateId, st) + '</div>'
-            : '<p style="font-size:13px;color:var(--text-secondary);">No comparable competitor set was found near this property — Ayas / Champoluc is a small Aosta Valley ski market with very few 5-star listings on trivago.</p>') +
+            : '<p style="font-size:13px;color:var(--text-secondary);">No comparable competitor set has been found near this property yet on any date fetched so far.</p>') +
         '</div>' +
       '</div>';
   }
@@ -984,58 +1059,59 @@
   var dpPop = document.getElementById("dpPop");
   var viewY, viewM;
 
-  function dateEntry(id){ return DATES.filter(function(d){return d.id === id;})[0]; }
-
-  function monthHasEnabled(y, m){
-    return DATES.some(function(d){ return d.y === y && d.m === m; });
-  }
-  function nextEnabledMonth(y, m, dir){
-    var y2 = y, m2 = m;
-    for (var i = 0; i < 24; i++){
-      m2 += dir;
-      if (m2 < 0) { m2 = 11; y2--; }
-      if (m2 > 11) { m2 = 0; y2++; }
-      if (monthHasEnabled(y2, m2)) return {y:y2, m:m2};
-    }
-    return null;
+  function monthInRange(y, m){
+    var last = new Date(y, m + 1, 0);
+    var first = new Date(y, m, 1);
+    return last >= MIN_DATE && first <= MAX_DATE;
   }
 
   function renderCalendar(){
     var first = new Date(viewY, viewM, 1);
     var startDow = first.getDay();
-    var days = new Date(viewY, viewM+1, 0).getDate();
+    var daysInMonth = new Date(viewY, viewM + 1, 0).getDate();
 
-    var prevTarget = nextEnabledMonth(viewY, viewM, -1);
-    var nextTarget = nextEnabledMonth(viewY, viewM, 1);
+    var prevOk = monthInRange(viewY, viewM - 1 < 0 ? viewY - 1 : viewY, (viewM - 1 + 12) % 12);
+    var nextOk = monthInRange(viewM + 1 > 11 ? viewY + 1 : viewY, (viewM + 1) % 12);
 
     var cells = "";
     for (var p = 0; p < startDow; p++){ cells += '<div class="dp-day pad"></div>'; }
-    for (var day = 1; day <= days; day++){
-      var match = DATES.filter(function(d){ return d.y === viewY && d.m === viewM && d.d === day; })[0];
+    for (var day = 1; day <= daysInMonth; day++){
+      var dt = new Date(viewY, viewM, day);
+      var id = isoOf(viewY, viewM, day);
+      var inRange = dt >= MIN_DATE && dt <= MAX_DATE;
+      var hasData = DATA.some(function(h){ return h.byDate[id] && h.byDate[id].price !== null && h.byDate[id].price !== undefined; });
       var cls = "dp-day";
       var attrs = "";
-      if (match){
-        cls += " enabled" + (match.id === activeDate ? " selected" : "");
-        attrs = ' data-id="' + match.id + '"';
+      var inner = '<span class="dnum">' + day + '</span>';
+      if (inRange){
+        cls += " selectable" + (hasData ? " has-data" : "") + (id === activeDate ? " selected" : "");
+        attrs = ' data-id="' + id + '"';
+        if (hasData) inner += '<span class="ddot"></span>';
       }
-      cells += '<div class="' + cls + '"' + attrs + '>' + day + '</div>';
+      cells += '<div class="' + cls + '"' + attrs + '>' + inner + '</div>';
     }
 
     dpPop.innerHTML =
       '<div class="dp-head">' +
-        '<button type="button" class="dp-navbtn" id="dpPrev"' + (prevTarget ? "" : " disabled") + ' aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '<button type="button" class="dp-navbtn" id="dpPrev"' + (prevOk ? "" : " disabled") + ' aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
         '<span class="dp-month">' + MONTH_NAMES[viewM] + ' ' + viewY + '</span>' +
-        '<button type="button" class="dp-navbtn" id="dpNext"' + (nextTarget ? "" : " disabled") + ' aria-label="Next month"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '<button type="button" class="dp-navbtn" id="dpNext"' + (nextOk ? "" : " disabled") + ' aria-label="Next month"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
       '</div>' +
       '<div class="dp-grid">' + DOW.map(function(w){return '<div class="dp-dow">' + w + '</div>';}).join("") + cells + '</div>' +
-      '<div class="dp-footer">Only dates with a live Trivago snapshot are selectable.</div>';
+      '<div class="dp-footer">Any date is selectable.<span class="ddot-inline"></span>marks a date with data already loaded — press Get live rates to fetch a new one.</div>';
 
     var prevBtn = document.getElementById("dpPrev");
     var nextBtn = document.getElementById("dpNext");
-    if (prevTarget) prevBtn.addEventListener("click", function(){ viewY = prevTarget.y; viewM = prevTarget.m; renderCalendar(); });
-    if (nextTarget) nextBtn.addEventListener("click", function(){ viewY = nextTarget.y; viewM = nextTarget.m; renderCalendar(); });
+    if (prevBtn) prevBtn.addEventListener("click", function(){
+      viewM--; if (viewM < 0) { viewM = 11; viewY--; }
+      renderCalendar();
+    });
+    if (nextBtn) nextBtn.addEventListener("click", function(){
+      viewM++; if (viewM > 11) { viewM = 0; viewY++; }
+      renderCalendar();
+    });
 
-    Array.prototype.forEach.call(dpPop.querySelectorAll(".dp-day.enabled"), function(cell){
+    Array.prototype.forEach.call(dpPop.querySelectorAll(".dp-day.selectable"), function(cell){
       cell.addEventListener("click", function(){
         goTo(activeHotel, cell.getAttribute("data-id"));
         renderCalendar();
@@ -1071,7 +1147,7 @@
     var savedH = localStorage.getItem("rate-radar-active");
     if (savedH && DATA.some(function(d){return d.id === savedH;})) initialHotel = savedH;
     var savedD = localStorage.getItem("rate-radar-date");
-    if (savedD && DATES.some(function(d){return d.id === savedD;})) initialDate = savedD;
+    if (savedD) initialDate = savedD;
   } catch(e){}
   activeHotel = initialHotel;
   activeDate = initialDate;
