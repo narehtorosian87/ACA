@@ -23,7 +23,11 @@ the most mileage?" — course demo audience, but framed as a real personal tool.
 1. User sets a budget and a style preference (e.g. "minimal", "casual", "smart-casual").
 2. User connects Google Calendar (optional) so the app can read upcoming event titles/types over the next
    1–2 weeks and infer an occasion mix (e.g. "3 casual days, 1 dressier event, 1 workout").
-   - If they skip this, they manually pick an occasion mix from presets instead.
+   - If they skip this, they build the occasion mix manually from presets instead.
+   - If calendar is connected, the inferred mix is shown as **editable** — the user can adjust counts or
+     add/remove occasion types before continuing. Calendar always pre-fills a starting point; it never
+     locks the input. This matters because event titles are guessed from text and will sometimes be
+     wrong or missing context the user has.
 3. App runs a combination search over the seed item catalog (tagged by category, color, style, price) to find
    the item set, within budget, that produces the most valid outfit combinations covering the needed occasions.
 4. Results screen: the chosen capsule (5–8 items), total spend vs. budget, and the outfit combinations it
@@ -34,7 +38,8 @@ the most mileage?" — course demo audience, but framed as a real personal tool.
 - Budget + style input form
 - Google Calendar connector: read event titles for the next N days → map to occasion tags (rule-based or
   simple LLM classification of event titles)
-- Manual occasion-mix fallback (no calendar connected)
+- Manual occasion-mix input (used standalone with no calendar connected, or to edit/override the
+  calendar-inferred mix)
 - Seed item catalog (curated JSON: ~30–50 items, tagged category/color/style/price/occasion-fit)
 - Combination optimizer: given budget + occasion mix, pick items maximizing valid outfit count
   (start simple — greedy or brute-force over a small catalog; doesn't need to be a fancy solver)
