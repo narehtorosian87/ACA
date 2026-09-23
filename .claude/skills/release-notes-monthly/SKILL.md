@@ -26,10 +26,10 @@ This is a two-phase agent. Phase 1 (research → draft → judge → present) ru
    - **REVISE** → send the judge's specific feedback back to the writer, regenerate, and re-judge. Allow at most 2 revision rounds per ticket.
    - **REJECT-NOT-SHIPPED** → move the ticket to the **no change shipped** bucket (don't retry it as a wording problem).
    - If a ticket still hasn't passed after 2 revision rounds, move it to a **needs human review** bucket instead of guessing — include the last draft and the judge's outstanding objections so Nareh can decide.
-6. **Present the digest in this chat.** Show, in this order:
+6. **Present the digest in this chat.** Every tagged ticket reviewed this run must appear in the output with its Asana permalink — no ticket is ever silently dropped, even one with no note. Show, in this order:
    - The month covered.
    - Final judge-approved release notes (this is the main content — the part that would go in the email), each with a link back to its Asana ticket.
-   - "No change shipped" bucket — ticket names/links + the one-line reason (e.g. "closed as not a bug").
+   - "No change shipped" bucket — ticket names/links + the one-line reason it was excluded (e.g. "closed as not a bug"), so Nareh can see and override the call if the judge got it wrong.
    - "Needs human review" bucket, if any — ticket name/link, the last draft, and the judge's remaining objections.
    Then stop. Do not draft the email yet, and do not ask "should I send this" — wait for Nareh to actually reply.
 
