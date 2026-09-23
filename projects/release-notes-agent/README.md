@@ -35,7 +35,7 @@ An agent isn't just "prompt + tool calls" — it needs a trigger, a reason to us
 Before scheduling this live, it was dry-run in chat against the 4 real tickets already tagged "Release Note" in Asana as of 2026-09-23, covering:
 
 1. A clean shipped feature with an old, unrelated 2025 comment mixed into the thread (tests noise-filtering) — **passed the judge on the first draft**.
-2. A ticket closed as "not a bug" with no real product change — **correctly rejected** by the judge (`REJECT-NOT-SHIPPED`), never reached a draft note.
+2. A ticket (UTC → property-local timezone for IBE reporting) initially misjudged by the writer/judge as "closed not-a-bug, no real change" — **caught and corrected by Nareh**: the requested change (switch from UTC to property timezone) did ship; the thread's investigation was clearing an unrelated discrepancy with a different system (OpenGDS), not saying the fix itself didn't happen. The judge skill was tightened to distinguish these two cases explicitly.
 3. A bug-fix ticket where the original draft literally had the bug backwards (said checkout/confirmation-page disagreed, when the ticket says those two were always correct and the confirmation *email* was the outlier) and asserted the email fix was confirmed in production when the thread's own last comment says that verification hadn't happened yet — **judge caught the inversion and the overclaim**, sent back for revision; the revised version correctly framed the confirmed parts and hedged the unconfirmed email claim instead of dropping the ticket.
 4. An unstarted, uncompleted ticket with no comments at all — **included per the "ignore completion status" rule**, written as an honestly-framed "in development, no confirmed date" note rather than implying it had shipped.
 
