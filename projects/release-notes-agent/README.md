@@ -29,6 +29,7 @@ An agent isn't just "prompt + tool calls" — it needs a trigger, a reason to us
 - **Judge is a hard gate**, not advisory — Nareh only sees notes that already passed accuracy + readability review, with a 2-round revision cap before a stuck ticket goes to a "needs human review" bucket instead of forcing a pass.
 - **Approval happens by replying in the fired session**, not a separate command — mirrors how the existing `hospitality-weekly-market-analysis` Routine in this repo works, and needs no new infrastructure.
 - **Email `To:` is left blank** — Nareh fills in the recipient herself before sending, since the agent doesn't have an authoritative distribution list to target.
+- **The email is drafted in chat, not as a Gmail draft.** The session's Gmail connector didn't have drafts/compose scope granted, so `create_draft` failed with an insufficient-scope error. Rather than block on that, the agent now composes the subject + body directly in the chat response for Nareh to paste into Gmail herself.
 
 ## Validated against real data
 

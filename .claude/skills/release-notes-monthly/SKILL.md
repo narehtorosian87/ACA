@@ -1,6 +1,6 @@
 ---
 name: release-notes-monthly
-description: Monthly agent that finds Asana tickets tagged "Release Note", drafts a release note for each shipped one using the release-notes-writer skill, runs every draft through the release-notes-judge skill as a hard quality gate, and presents the resulting digest in this chat session for Nareh's approval. Once approved, drafts the monthly product-highlights email in Gmail. Runs via a scheduled Routine on the first Monday of each month; also invoke manually when Nareh asks to run, preview, or test the monthly release notes.
+description: Monthly agent that finds Asana tickets tagged "Release Note", drafts a release note for each shipped one using the release-notes-writer skill, runs every draft through the release-notes-judge skill as a hard quality gate, and presents the resulting digest in this chat session for Nareh's approval. Once approved, drafts the monthly product-highlights email directly in chat (not as a Gmail draft) for Nareh to copy into Gmail herself. Runs via a scheduled Routine on the first Monday of each month; also invoke manually when Nareh asks to run, preview, or test the monthly release notes.
 ---
 
 # Release Notes Monthly Agent
@@ -35,7 +35,7 @@ This is a two-phase agent. Phase 1 (research → draft → judge → present) ru
 
 ## Phase 2 — Approval and email (only after Nareh replies in this session)
 
-Trigger: Nareh replies in this same conversation approving the digest (verbatim "approved" isn't required — treat any clear approval, e.g. "looks good", "send it", as approval). If she instead asks for edits, apply them to the specific notes, re-present, and wait again — don't proceed to email until she's approved the current version.
+Trigger: Nareh replies in this same conversation approving the digest (verbatim "approved" isn't required — treat any clear approval, e.g. "looks good", "send it", as approval). If she instead asks for edits, apply them to the specific notes, re-present, and wait again — don't proceed to the email draft until she's approved the current version.
 
 Once approved:
 
@@ -52,10 +52,10 @@ Once approved:
    Nareh
    ```
 
-2. Create a Gmail draft (`create_draft`) with that body and a subject like "Product Highlights – {Month} {Year}". Leave the To: field blank — Nareh fills in the recipient herself.
+2. **Draft the email directly in this chat, not in Gmail.** Present it as a subject line (e.g. "Product Highlights – {Month} {Year}") plus the full body in a copyable block, so Nareh can paste it into Gmail (or wherever she sends from) herself. Do not call any Gmail tool for this — a prior run hit a Gmail connector scope error creating drafts (drafts/compose permission wasn't granted), and drafting in-chat avoids depending on that connector at all. If Gmail draft creation is ever wanted again later, that's an explicit ask, not the default.
 3. Append the newly-covered ticket gids to `products/release-notes-agent/monthly-log.md` (new dated section, same format as existing entries), commit, and push to the repo's default branch — this is routine recurring bookkeeping, push straight there, no PR needed.
 4. Also log the "no change shipped" tickets from this run (so they're never re-evaluated).
-5. Tell Nareh the Gmail draft is ready and where to find it.
+5. Tell Nareh the email draft is ready above for her to copy into Gmail.
 
 ## If something only Nareh can resolve comes up
 
