@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { GarmentGlyph } from "@/components/garment-glyph";
+import type { ClosetCategory } from "@/lib/types";
 
 const steps = [
   {
@@ -43,20 +45,6 @@ const features = [
   },
 ];
 
-function GarmentGlyph({ kind, tone }: { kind: "top" | "bottom" | "shoes" | "outer"; tone: string }) {
-  const shapes: Record<typeof kind, string> = {
-    top: "M6 4 L12 2 L18 4 L18 8 L15 9 L15 21 L9 21 L9 9 L6 8 Z",
-    bottom: "M8 3 H16 L17 21 H13 L12 12 L11 21 H7 Z",
-    shoes: "M4 15 H10 L13 12 H20 C21 12 22 13 22 15 V17 H4 Z",
-    outer: "M5 4 L12 2 L19 4 L20 9 L17 10 L17 22 H7 L7 10 L4 9 Z",
-  };
-  return (
-    <svg viewBox="0 0 24 24" className={`h-10 w-10 ${tone}`} fill="currentColor">
-      <path d={shapes[kind]} />
-    </svg>
-  );
-}
-
 function OutfitMock({
   label,
   reason,
@@ -64,7 +52,7 @@ function OutfitMock({
 }: {
   label: string;
   reason: string;
-  items: { kind: "top" | "bottom" | "shoes" | "outer"; name: string; tone: string }[];
+  items: { kind: ClosetCategory; name: string; tone: string }[];
 }) {
   return (
     <div className="w-full max-w-xs rounded-3xl border border-line bg-white/70 p-6 shadow-[0_18px_40px_-24px_rgba(36,31,26,0.35)]">
@@ -77,7 +65,7 @@ function OutfitMock({
             key={item.name}
             className="flex flex-col items-center gap-2 rounded-2xl bg-cream-soft py-4"
           >
-            <GarmentGlyph kind={item.kind} tone={item.tone} />
+            <GarmentGlyph category={item.kind} className={`h-10 w-10 ${item.tone}`} />
             <span className="text-xs font-medium text-ink-soft">{item.name}</span>
           </div>
         ))}
@@ -107,9 +95,9 @@ export default function Home() {
                 decided.
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
-                Two full outfits, every morning — built from what's actually in
+                Two full outfits, every morning — built from what&apos;s actually in
                 your closet, matched to your plans, the weather, and the mood
-                you're in.
+                you&apos;re in.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Link
@@ -132,7 +120,7 @@ export default function Home() {
                 label="Outfit 1"
                 reason="9°C and drizzling, plus your 2pm client meeting — tailored layers that stay sharp and dry."
                 items={[
-                  { kind: "outer", name: "Wool coat", tone: "text-ink-soft" },
+                  { kind: "outerwear", name: "Wool coat", tone: "text-ink-soft" },
                   { kind: "top", name: "Cream shirt", tone: "text-sage" },
                   { kind: "bottom", name: "Tailored trousers", tone: "text-ink" },
                   { kind: "shoes", name: "Leather boots", tone: "text-terracotta" },
@@ -143,7 +131,7 @@ export default function Home() {
                   label="Outfit 2"
                   reason="Same weather, more 'relaxed' mood — a knit and denim instead of tailoring."
                   items={[
-                    { kind: "outer", name: "Rain jacket", tone: "text-sage" },
+                    { kind: "outerwear", name: "Rain jacket", tone: "text-sage" },
                     { kind: "top", name: "Chunky knit", tone: "text-gold" },
                     { kind: "bottom", name: "Straight denim", tone: "text-ink" },
                     { kind: "shoes", name: "Suede sneakers", tone: "text-terracotta" },
