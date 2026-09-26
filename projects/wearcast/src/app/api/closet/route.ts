@@ -1,11 +1,18 @@
 import { NextResponse } from "next/server";
-import { createItem, getAllItems } from "@/lib/closet-store";
-import { saveUploadedPhoto } from "@/lib/upload";
+import { createItem, getAllItems, replaceAllItems } from "@/lib/closet-store";
+import { deleteUploadedPhoto, saveUploadedPhoto } from "@/lib/upload";
 import type { ClosetItemInput } from "@/lib/types";
 
 export async function GET() {
   const items = await getAllItems();
   return NextResponse.json({ items });
+}
+
+export async function DELETE() {
+  const items = await getAllItems();
+  await Promise.all(items.map((item) => deleteUploadedPhoto(item.photoUrl)));
+  await replaceAllItems([]);
+  return NextResponse.json({ ok: true });
 }
 
 export async function POST(request: Request) {
