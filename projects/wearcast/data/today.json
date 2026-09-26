@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-26",
+  "city": "Amsterdam, North Holland, Netherlands",
+  "latitude": 52.3676,
+  "longitude": 4.9041,
+  "plans": [
+    {
+      "id": "47cb84ea-b0d9-460a-8ed7-b6df9f484b0c",
+      "title": "Client presentation",
+      "time": "10:00",
+      "occasionTag": "work"
+    },
+    {
+      "id": "e11b975d-1d0c-41f9-847c-364998e3ed8f",
+      "title": "Dinner with friends",
+      "time": "19:30",
+      "occasionTag": "date"
+    }
+  ],
+  "moodChips": [
+    "professional"
+  ],
+  "moodNote": "Want to go straight from the office to dinner without changing."
+}
