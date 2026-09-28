@@ -115,7 +115,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-center">
+            <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:justify-center">
               <OutfitMock
                 label="Outfit 1"
                 reason="9°C and drizzling, plus your 2pm client meeting — tailored layers that stay sharp and dry."
