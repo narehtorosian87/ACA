@@ -19,6 +19,8 @@ const rawItems = [
     occasionTags: ["work"],
     fit: "slim",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/white-button-up-shirt-on-clothes-hanger-hMMXhKSZk7k/download",
   },
   {
     name: "Crisp white shirt",
@@ -75,6 +77,8 @@ const rawItems = [
     occasionTags: ["casual", "lounge"],
     fit: "",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/a-black-t-shirt-hangs-against-a-metal-grate-5gYpgixB9PE/download",
   },
   {
     name: "Sage silk blouse",
@@ -119,6 +123,7 @@ const rawItems = [
     occasionTags: ["casual", "travel"],
     fit: "straight",
     favorite: false,
+    photoUrl: "https://unsplash.com/photos/pile-of-blue-denim-jeans-lot-UP9DtTjRYpI/download",
   },
   {
     name: "Black tailored trousers",
@@ -161,6 +166,8 @@ const rawItems = [
     occasionTags: ["casual", "travel", "outdoor"],
     fit: "straight",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/a-man-in-a-white-shirt-and-khaki-pants-DjniaF8q-HI/download",
   },
 
   // Dresses
@@ -177,6 +184,8 @@ const rawItems = [
     occasionTags: ["date", "party"],
     fit: "",
     favorite: true,
+    photoUrl:
+      "https://unsplash.com/photos/black-sleeveless-top-hanging-on-wardrobe-cp-VMJ-mdKs/download",
   },
   {
     name: "Floral midi dress",
@@ -207,6 +216,8 @@ const rawItems = [
     occasionTags: ["work", "travel"],
     fit: "tailored",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/a-jacket-hanging-on-a-coat-rack-in-a-room-C1-PIlyLvD8/download",
   },
   {
     name: "Sage rain jacket",
@@ -235,6 +246,7 @@ const rawItems = [
     occasionTags: ["casual", "date", "party"],
     fit: "",
     favorite: true,
+    photoUrl: "https://unsplash.com/photos/man-wearing-black-leather-jacket-TsfEeRp_j48/download",
   },
   {
     name: "Cream cardigan",
@@ -265,6 +277,7 @@ const rawItems = [
     occasionTags: ["work"],
     fit: "",
     favorite: false,
+    photoUrl: "https://unsplash.com/photos/pair-of-brown-leather-dress-shoes-OuxPfti70I0/download",
   },
   {
     name: "Suede sneakers",
@@ -293,6 +306,8 @@ const rawItems = [
     occasionTags: ["casual", "travel", "outdoor"],
     fit: "",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/a-pair-of-white-sneakers-on-a-white-background-8GzbKs74yq4/download",
   },
   {
     name: "Ankle boots",
@@ -351,6 +366,8 @@ const rawItems = [
     occasionTags: ["work", "date"],
     fit: "",
     favorite: false,
+    photoUrl:
+      "https://unsplash.com/photos/a-close-up-of-a-leather-belt-on-a-bench-Mf194wsFKZI/download",
   },
   {
     name: "Canvas tote bag",
