@@ -1,8 +1,8 @@
 [
   {
-    "id": "a5fd957d-75da-4ebd-a846-9913092c71cd",
-    "createdAt": "2026-09-28T12:53:57.111Z",
-    "updatedAt": "2026-09-28T12:53:57.111Z",
+    "id": "a2b128d1-eaef-466d-9f53-4110d6e6abe3",
+    "createdAt": "2026-09-28T13:06:00.284Z",
+    "updatedAt": "2026-09-28T13:06:00.284Z",
     "notes": "",
     "name": "Cream oxford shirt",
     "category": "top",
@@ -23,12 +23,12 @@
     ],
     "fit": "slim",
     "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/white-button-up-shirt-on-clothes-hanger-hMMXhKSZk7k/download"
+    "photoUrl": "https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "id": "e000cb20-20f9-493f-8fba-8553879668eb",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "957317fa-9b5c-4ede-8002-d244198ebf38",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Crisp white shirt",
     "category": "top",
@@ -53,9 +53,9 @@
     "favorite": false
   },
   {
-    "id": "b759bc63-652a-4076-aa2e-da5fa79cdae2",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "af3aa6d5-c3be-4a96-9965-e7f81c021655",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Mustard chunky knit",
     "category": "top",
@@ -79,9 +79,9 @@
     "favorite": true
   },
   {
-    "id": "69ed6618-4c9a-41c3-85bf-3c54ed7f006a",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "7f3f6b39-b62c-4591-a298-76361af5910d",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Striped breton tee",
     "category": "top",
@@ -106,9 +106,9 @@
     "favorite": false
   },
   {
-    "id": "e02b16eb-c37f-412c-9061-51c7033fe22d",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "2dda28a4-f2b8-4246-bb4a-06d568b22c87",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Graphic band tee",
     "category": "top",
@@ -129,12 +129,12 @@
     ],
     "fit": "",
     "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/a-black-t-shirt-hangs-against-a-metal-grate-5gYpgixB9PE/download"
+    "photoUrl": "https://plus.unsplash.com/premium_photo-1755994149662-14c6a33cfcb1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "id": "c14223fd-3d67-4213-8a61-b789dbfca8f3",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "2c803f1c-fa24-45e6-b0fb-1b93dc258cf5",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Sage silk blouse",
     "category": "top",
@@ -158,9 +158,9 @@
     "favorite": true
   },
   {
-    "id": "f7666342-cb81-404c-a622-808bde220f02",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "928d5434-0e93-40cf-b7ce-ae9b7c05b790",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Charcoal wool trousers",
     "category": "bottom",
@@ -183,9 +183,9 @@
     "favorite": false
   },
   {
-    "id": "80c1f5c5-e70e-4a37-b2d8-a04f9b075744",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "0830d7c4-f9d9-46b8-876b-2d1734c620da",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Straight leg denim",
     "category": "bottom",
@@ -207,12 +207,12 @@
     ],
     "fit": "straight",
     "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/pile-of-blue-denim-jeans-lot-UP9DtTjRYpI/download"
+    "photoUrl": "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    "id": "946db652-dc8a-4bd2-bbe1-da26aae9bf27",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "78fd929e-30be-4a5f-a795-68b444c7df5d",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Black tailored trousers",
     "category": "bottom",
@@ -237,9 +237,9 @@
     "favorite": false
   },
   {
-    "id": "f154840a-76b2-4da8-a794-139f8f15f314",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "37b78d21-aa9e-4756-bf76-b211f1345335",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Black leggings",
     "category": "bottom",
@@ -264,9 +264,9 @@
     "favorite": false
   },
   {
-    "id": "a8bfa33d-6403-4eb0-8dde-9840290ebb4b",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "3eebc549-fab2-44c4-b9d9-16e6300b7c23",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Khaki chinos",
     "category": "bottom",
@@ -289,13 +289,12 @@
       "outdoor"
     ],
     "fit": "straight",
-    "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/a-man-in-a-white-shirt-and-khaki-pants-DjniaF8q-HI/download"
+    "favorite": false
   },
   {
-    "id": "750c70ab-d58b-4413-8a35-e63397ab07b4",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "9d88b5f1-1c49-4ae4-9b25-62d50d9d4ae2",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Burgundy wrap dress",
     "category": "dress",
@@ -316,13 +315,12 @@
       "party"
     ],
     "fit": "",
-    "favorite": true,
-    "photoUrl": "https://unsplash.com/photos/black-sleeveless-top-hanging-on-wardrobe-cp-VMJ-mdKs/download"
+    "favorite": true
   },
   {
-    "id": "54ab7190-6073-4cf7-bf66-27af2cd6d8dd",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "d1056b36-e6bc-479d-9cf6-8059176735f5",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Floral midi dress",
     "category": "dress",
@@ -347,9 +345,9 @@
     "favorite": false
   },
   {
-    "id": "5fdad6cc-aafd-429d-8128-1458f661b9c8",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "1ab65efc-c267-4d5f-b408-75acee46a42f",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Navy wool coat",
     "category": "outerwear",
@@ -370,13 +368,12 @@
       "travel"
     ],
     "fit": "tailored",
-    "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/a-jacket-hanging-on-a-coat-rack-in-a-room-C1-PIlyLvD8/download"
+    "favorite": false
   },
   {
-    "id": "a537eac7-bad3-4d5c-b3d8-ca48dfe549dd",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "026c7966-3683-4459-86f3-74e725ad525f",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Sage rain jacket",
     "category": "outerwear",
@@ -401,9 +398,9 @@
     "favorite": false
   },
   {
-    "id": "6c088f4d-a8e5-45d7-a240-01f0c28cda79",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "5f98198b-947b-4264-8e96-1126813d663c",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Black leather jacket",
     "category": "outerwear",
@@ -425,13 +422,12 @@
       "party"
     ],
     "fit": "",
-    "favorite": true,
-    "photoUrl": "https://unsplash.com/photos/man-wearing-black-leather-jacket-TsfEeRp_j48/download"
+    "favorite": true
   },
   {
-    "id": "aa39584e-e44c-41fb-8d9a-ee0e4c9c1644",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "f827a422-5494-4098-9bee-3f1d0f5311ca",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Cream cardigan",
     "category": "outerwear",
@@ -455,9 +451,9 @@
     "favorite": false
   },
   {
-    "id": "9a36c58d-562e-4bb3-bc5e-6cab849c7ca5",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "7229d409-3f0c-4462-9a90-a9e743b0a3d5",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Leather derby shoes",
     "category": "shoes",
@@ -478,13 +474,12 @@
       "work"
     ],
     "fit": "",
-    "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/pair-of-brown-leather-dress-shoes-OuxPfti70I0/download"
+    "favorite": false
   },
   {
-    "id": "36f4ce8f-1919-4bb3-b903-355909037553",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "2d1c88a7-1b4c-462b-b9d0-ddd554905d83",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Suede sneakers",
     "category": "shoes",
@@ -507,9 +502,9 @@
     "favorite": false
   },
   {
-    "id": "ac6f07db-22d9-431c-a74e-44ad4fd43dc6",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "278ebd40-47fa-46eb-a693-02fe5d13ffe5",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "White sneakers",
     "category": "shoes",
@@ -532,13 +527,12 @@
       "outdoor"
     ],
     "fit": "",
-    "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/a-pair-of-white-sneakers-on-a-white-background-8GzbKs74yq4/download"
+    "favorite": false
   },
   {
-    "id": "8a0c38b6-8385-46d5-b238-cfbeb00e48b2",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "a34d96ae-92c1-4f9e-bcea-27ec7fdb0e08",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Ankle boots",
     "category": "shoes",
@@ -563,9 +557,9 @@
     "favorite": false
   },
   {
-    "id": "ff609b83-ae08-4439-954b-8adff33b67a0",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "b498b5d9-a31b-42e5-ab2a-3d00e5bdffcb",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Running shoes",
     "category": "shoes",
@@ -590,9 +584,9 @@
     "favorite": false
   },
   {
-    "id": "18bd4925-e3fe-4ce7-8f39-afae41aece2b",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "25c7cfeb-449a-4002-a463-a2d13c0a40a0",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Wool scarf",
     "category": "accessory",
@@ -617,9 +611,9 @@
     "favorite": false
   },
   {
-    "id": "a4c432a6-8a68-4481-be55-49bff1d961d1",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "ab51a7ce-9ba0-49b1-a9fd-8149d028c5d3",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Leather belt",
     "category": "accessory",
@@ -642,13 +636,12 @@
       "date"
     ],
     "fit": "",
-    "favorite": false,
-    "photoUrl": "https://unsplash.com/photos/a-close-up-of-a-leather-belt-on-a-bench-Mf194wsFKZI/download"
+    "favorite": false
   },
   {
-    "id": "281052d7-c551-4c9e-adb8-c003c6e48d3f",
-    "createdAt": "2026-09-28T12:53:57.112Z",
-    "updatedAt": "2026-09-28T12:53:57.112Z",
+    "id": "1df4effb-8d9d-47e4-8402-0ec879276aa4",
+    "createdAt": "2026-09-28T13:06:00.285Z",
+    "updatedAt": "2026-09-28T13:06:00.285Z",
     "notes": "",
     "name": "Canvas tote bag",
     "category": "accessory",
