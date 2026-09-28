@@ -126,7 +126,7 @@ export default function Home() {
                   { kind: "shoes", name: "Leather boots", tone: "text-terracotta" },
                 ]}
               />
-              <div className="hidden sm:block sm:translate-y-8">
+              <div className="hidden sm:block">
                 <OutfitMock
                   label="Outfit 2"
                   reason="Same weather, more 'relaxed' mood — a knit and denim instead of tailoring."
