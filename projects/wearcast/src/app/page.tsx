@@ -49,13 +49,17 @@ function OutfitMock({
   label,
   reason,
   items,
+  className = "",
 }: {
   label: string;
   reason: string;
   items: { kind: ClosetCategory; name: string; tone: string }[];
+  className?: string;
 }) {
   return (
-    <div className="w-full max-w-xs rounded-3xl border border-line bg-white/70 p-6 shadow-[0_18px_40px_-24px_rgba(36,31,26,0.35)]">
+    <div
+      className={`w-full max-w-xs rounded-3xl border border-line bg-white/70 p-6 shadow-[0_18px_40px_-24px_rgba(36,31,26,0.35)] ${className}`}
+    >
       <p className="text-xs font-semibold uppercase tracking-wide text-terracotta">
         {label}
       </p>
@@ -126,18 +130,17 @@ export default function Home() {
                   { kind: "shoes", name: "Leather boots", tone: "text-terracotta" },
                 ]}
               />
-              <div className="hidden sm:block">
-                <OutfitMock
-                  label="Outfit 2"
-                  reason="Same weather, more 'relaxed' mood — a knit and denim instead of tailoring."
-                  items={[
-                    { kind: "outerwear", name: "Rain jacket", tone: "text-sage" },
-                    { kind: "top", name: "Chunky knit", tone: "text-gold" },
-                    { kind: "bottom", name: "Straight denim", tone: "text-ink" },
-                    { kind: "shoes", name: "Suede sneakers", tone: "text-terracotta" },
-                  ]}
-                />
-              </div>
+              <OutfitMock
+                label="Outfit 2"
+                reason="Same weather, more 'relaxed' mood — a knit and denim instead of tailoring."
+                className="hidden sm:block"
+                items={[
+                  { kind: "outerwear", name: "Rain jacket", tone: "text-sage" },
+                  { kind: "top", name: "Chunky knit", tone: "text-gold" },
+                  { kind: "bottom", name: "Straight denim", tone: "text-ink" },
+                  { kind: "shoes", name: "Suede sneakers", tone: "text-terracotta" },
+                ]}
+              />
             </div>
           </div>
         </section>
