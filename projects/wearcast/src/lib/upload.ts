@@ -1,8 +1,8 @@
 import { randomUUID } from "crypto";
-import { promises as fs } from "fs";
-import path from "path";
+import { createClient } from "./supabase/server";
+import { requireUserId } from "./supabase/auth-helpers";
 
-const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads");
+const BUCKET = "closet-photos";
 
 const EXTENSION_BY_MIME: Record<string, string> = {
   "image/jpeg": "jpg",
@@ -12,16 +12,38 @@ const EXTENSION_BY_MIME: Record<string, string> = {
 };
 
 export async function saveUploadedPhoto(file: File): Promise<string> {
-  await fs.mkdir(UPLOAD_DIR, { recursive: true });
+  const supabase = await createClient();
+  const userId = await requireUserId(supabase);
+
   const extension = EXTENSION_BY_MIME[file.type] ?? "jpg";
-  const fileName = `${randomUUID()}.${extension}`;
+  const path = `${userId}/${randomUUID()}.${extension}`;
   const buffer = Buffer.from(await file.arrayBuffer());
-  await fs.writeFile(path.join(UPLOAD_DIR, fileName), buffer);
-  return `/uploads/${fileName}`;
+
+  const { error } = await supabase.storage
+    .from(BUCKET)
+    .upload(path, buffer, { contentType: file.type, upsert: false });
+  if (error) throw error;
+
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from(BUCKET).getPublicUrl(path);
+  return publicUrl;
 }
 
-export async function deleteUploadedPhoto(photoUrl: string | undefined): Promise<void> {
-  if (!photoUrl || !photoUrl.startsWith("/uploads/")) return;
-  const filePath = path.join(process.cwd(), "public", photoUrl);
-  await fs.rm(filePath, { force: true });
+function pathFromPublicUrl(photoUrl: string): string | null {
+  const marker = `/storage/v1/object/public/${BUCKET}/`;
+  const index = photoUrl.indexOf(marker);
+  if (index === -1) return null;
+  return photoUrl.slice(index + marker.length);
+}
+
+export async function deleteUploadedPhoto(
+  photoUrl: string | undefined,
+): Promise<void> {
+  if (!photoUrl) return;
+  const path = pathFromPublicUrl(photoUrl);
+  if (!path) return;
+
+  const supabase = await createClient();
+  await supabase.storage.from(BUCKET).remove([path]);
 }

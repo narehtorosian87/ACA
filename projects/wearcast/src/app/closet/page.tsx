@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ClosetItemCard } from "@/components/closet-item-card";
+import { LoadDemoButton } from "@/components/load-demo-button";
 import { getAllItems } from "@/lib/closet-store";
 import { CATEGORY_OPTIONS } from "@/lib/constants";
 
@@ -45,12 +46,15 @@ export default async function ClosetPage() {
                 Add your first item — category, color, warmth, and when you&apos;d
                 wear it — so Wearcast has something to recommend.
               </p>
-              <Link
-                href="/closet/new"
-                className="mt-6 inline-block rounded-full bg-terracotta px-6 py-3 text-sm font-semibold text-cream hover:bg-terracotta-soft hover:text-ink"
-              >
-                Add your first item
-              </Link>
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  href="/closet/new"
+                  className="inline-block rounded-full bg-terracotta px-6 py-3 text-sm font-semibold text-cream hover:bg-terracotta-soft hover:text-ink"
+                >
+                  Add your first item
+                </Link>
+                <LoadDemoButton />
+              </div>
             </div>
           ) : (
             <div className="mt-10 space-y-10">

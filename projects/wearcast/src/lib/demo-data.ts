@@ -1,10 +1,6 @@
-import { randomUUID } from "crypto";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
+import type { ClosetItemInput, PlanEntry } from "./types";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-
-const rawItems = [
+export const DEMO_CLOSET_ITEMS: ClosetItemInput[] = [
   // Tops
   {
     name: "Cream oxford shirt",
@@ -374,61 +370,16 @@ const rawItems = [
   },
 ];
 
-function toClosetItem(raw) {
-  const now = new Date().toISOString();
-  return {
-    id: randomUUID(),
-    createdAt: now,
-    updatedAt: now,
-    notes: "",
-    ...raw,
-  };
-}
+export const DEMO_PLANS: Omit<PlanEntry, "id">[] = [
+  { title: "Client presentation", time: "10:00", occasionTag: "work" },
+  { title: "Dinner with friends", time: "19:30", occasionTag: "date" },
+];
 
-const closet = rawItems.map(toClosetItem);
+export const DEMO_MOOD_CHIPS = ["professional"] as const;
 
-const today = {
-  date: new Date().toISOString().slice(0, 10),
-  city: "Amsterdam, North Holland, Netherlands",
-  latitude: 52.3676,
-  longitude: 4.9041,
-  plans: [
-    {
-      id: randomUUID(),
-      title: "Client presentation",
-      time: "10:00",
-      occasionTag: "work",
-    },
-    {
-      id: randomUUID(),
-      title: "Dinner with friends",
-      time: "19:30",
-      occasionTag: "date",
-    },
-  ],
-  moodChips: ["professional"],
-  moodNote: "Want to go straight from the office to dinner without changing.",
-};
+export const DEMO_MOOD_NOTE =
+  "Want to go straight from the office to dinner without changing.";
 
-const settings = {
-  city: "Amsterdam, North Holland, Netherlands",
-  latitude: 52.3676,
-  longitude: 4.9041,
-};
-
-await mkdir(DATA_DIR, { recursive: true });
-await writeFile(
-  path.join(DATA_DIR, "closet.json"),
-  JSON.stringify(closet, null, 2),
-);
-await writeFile(
-  path.join(DATA_DIR, "today.json"),
-  JSON.stringify(today, null, 2),
-);
-await writeFile(
-  path.join(DATA_DIR, "settings.json"),
-  JSON.stringify(settings, null, 2),
-);
-
-console.log(`Seeded ${closet.length} closet items, a sample day, and settings.`);
-console.log("Note: weather is not pre-filled — hit \"Check weather\" on the Today page to pull it live.");
+export const DEMO_CITY = "Amsterdam, North Holland, Netherlands";
+export const DEMO_LATITUDE = 52.3676;
+export const DEMO_LONGITUDE = 4.9041;

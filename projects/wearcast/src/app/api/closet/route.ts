@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createItem, getAllItems, replaceAllItems } from "@/lib/closet-store";
+import { clearAllItems, createItem, getAllItems } from "@/lib/closet-store";
 import { deleteUploadedPhoto, saveUploadedPhoto } from "@/lib/upload";
 import type { ClosetItemInput } from "@/lib/types";
 
@@ -11,7 +11,7 @@ export async function GET() {
 export async function DELETE() {
   const items = await getAllItems();
   await Promise.all(items.map((item) => deleteUploadedPhoto(item.photoUrl)));
-  await replaceAllItems([]);
+  await clearAllItems();
   return NextResponse.json({ ok: true });
 }
 

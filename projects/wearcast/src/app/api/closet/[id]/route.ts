@@ -50,7 +50,10 @@ export async function PATCH(
     patch.photoUrl = await saveUploadedPhoto(photo);
   } else if (formData.get("removePhoto") === "true") {
     await deleteUploadedPhoto(existing.photoUrl);
-    patch.photoUrl = undefined;
+    // Empty string (not undefined) so inputToRow includes photo_url in the
+    // update and clears it — Postgres has no JSON.stringify-style implicit
+    // drop of undefined keys the way the old local-JSON store did.
+    patch.photoUrl = "";
   }
 
   const item = await updateItem(id, patch);

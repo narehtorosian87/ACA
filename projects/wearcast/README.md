@@ -4,19 +4,25 @@ Daily outfit recommendations built from your own closet — matched to your
 plans, the weather, and how you feel like dressing. Two full outfits, every
 day, with a plain-English reason for each.
 
-This is the MVP: no auth, no database — everything is stored as JSON files
-under `data/` and photos under `public/uploads/`, so it runs entirely on
-your machine.
+Each person signs in with a magic-link email and gets their own private
+closet. Data lives in Supabase (Postgres + Auth + Storage); the app itself
+deploys to Vercel.
 
-## Getting started
+## Getting started (local development)
 
-```bash
-npm install
-npm run seed   # populates a 25-item demo closet + a sample day (skip if you'd rather start empty)
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
+1. Create a free [Supabase](https://supabase.com) project (see
+   `supabase/schema.sql` for the database setup — run it once in the
+   Supabase SQL editor, and create a public `closet-photos` storage bucket).
+2. Copy `.env.local.example` to `.env.local` and fill in your project's URL
+   and anon key (Supabase dashboard -> Project Settings -> API).
+3. Install and run:
+   ```bash
+   npm install
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000), sign in with your
+   email (you'll get a magic link), then use "Or try a demo closet" on the
+   empty Closet page to populate a 25-item demo wardrobe + a sample day.
 
 ## How it works
 
@@ -29,14 +35,18 @@ Open [http://localhost:3000](http://localhost:3000).
    a transparent rule-based scoring engine (`src/lib/recommend/`), each with
    a short explanation of why it was picked.
 
-Everything is local: closet items and today's context live in
-`data/*.json`; there's no server-side database and no accounts.
+## Accounts and data
 
-## Resetting data
+Sign-in is passwordless (email magic link via Supabase Auth). Every table
+(`closet_items`, `day_context`, `settings`) is scoped to the signed-in user
+via row-level security, so each person only ever sees their own data —
+useful when sharing the live link with friends for testing.
 
-- **Settings page** → "Clear today's plan" / "Clear entire closet" buttons.
-- **`npm run seed`** → regenerates the demo closet and sample day from
-  scratch (overwrites `data/*.json`).
+## Resetting your data
+
+- **Settings page** → "Clear today's plan" / "Clear entire closet."
+- **Closet page** (when empty) → "Or try a demo closet" to reload the demo
+  wardrobe and sample day.
 
 ## Project structure
 
@@ -47,21 +57,24 @@ src/
   lib/
     types.ts            Shared TypeScript types
     constants.ts         Dropdown/option lists for the UI
-    *-store.ts           JSON-file read/write helpers
+    *-store.ts           Supabase read/write helpers
     weather.ts           Open-Meteo geocoding + forecast
+    demo-data.ts         The demo closet + sample day
     recommend/           Scoring engine + explanation generator
-scripts/seed.mjs        Demo data generator (npm run seed)
-data/                   JSON "database" (closet, today's context, settings)
+    supabase/            Browser/server Supabase clients, auth session refresh
+supabase/schema.sql   Database tables, RLS policies, storage bucket setup
 ```
+
+## Deploying
+
+This is a standard Next.js app — deploy to Vercel by connecting the GitHub
+repo, setting the **Root Directory** to `projects/wearcast`, and adding the
+same two environment variables from `.env.local` in the Vercel project
+settings.
 
 ## What's next
 
-This MVP intentionally skips: user accounts, a real database, photo-based
-or email-based closet import, and an LLM-generated explanation (the current
-explainer is deterministic and rule-based, but written so an LLM call could
-slot in later without touching the scoring engine). Calendar-connector
-import is also left for a fast-follow — today's plans are manual input only.
-
-Once validated locally, this is a standard Next.js app and deploys to
-Vercel as-is (the JSON-file storage would need to move to a real database
-first, since Vercel's filesystem isn't persistent).
+Deliberately out of scope for this round: calendar-connector import (plans
+are manual input only) and an LLM-generated explanation (the current
+explainer is deterministic and rule-based, written so an LLM call could
+slot in later without touching the scoring engine).
